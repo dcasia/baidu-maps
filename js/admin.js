@@ -81,7 +81,7 @@
 		html+= "<div class='marker_row marker_row_default marker_row_is_open'>";
 		html+= "<label> Show Marker Details  </label>";
 		html+= "<input type='checkbox' name='" + prefix + 'isopen' + '-' + marker_count + "' />"; 
-		html+= "<span class='caption'> Check to always show marker details</span>";
+		html+= "<span class='caption'>Check to always show marker details</span>";
 
 		html+= "</div>";
 
