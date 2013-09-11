@@ -1,4 +1,4 @@
 Baidu Maps Plugin
 =================
 
-A Wordpress Plugin to Integrate Baidu Maps and Extend the Functionality with Custom Markers
+A Wordpress plugin to integrate Baidu maps and extend the functionality with custom markers.
