@@ -120,6 +120,8 @@ class Baidu_Maps {
 		wp_register_script( 'baidu-maps-script-admin', $this->plugin_url . 'js/admin.js', array( 'jquery', 'wp-color-picker' ), false, true );
 		wp_enqueue_script( 'baidu-maps-script-admin' );
 
+		wp_localize_script( 'baidu-maps-script-admin', 'pluginUrl', $this->plugin_url );
+
 		wp_enqueue_script( 'thickbox' );
 		wp_enqueue_style( 'thickbox' );
 
@@ -185,9 +187,9 @@ class Baidu_Maps {
 			global $post_type;
 			if ( $post_type == 'bmap' ) {
 				$notice[] = "<div class='error'>";
-				$notice[] = "<p>" . __("You have not entered your Baidu Developers API Key") . " : " . "<a href='" . admin_url("options-general.php?page=baidu-maps-admin") . "'>" . __("Click Here to enter it") . "</a></p> </div>";
+				$notice[] = "<p>" . __( "You have not entered your Baidu Developers API Key" ) . " : " . "<a href='" . admin_url( "options-general.php?page=baidu-maps-admin" ) . "'>" . __( "Click Here to enter it" ) . "</a></p> </div>";
 
-				echo implode("\n", $notice);
+				echo implode( "\n", $notice );
 			}
 		}
 	}

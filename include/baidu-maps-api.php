@@ -50,6 +50,14 @@ class Baidu_Maps_API {
 
 		$map_element = $this->createMapElement( $id, $width, $height, $full_width );
 
+		if(($center_lat == '' || !is_numeric($center_lat))){
+			$center_lat = '121.491';
+		}elseif(($center_lng == '' || !is_numeric($center_lng))){
+			$center_lng = '31.233';
+		}elseif(($zoom == '' || !is_numeric($center_lng))){
+			$zoom = 13;
+		}
+
 		?>
 
 		<script>
@@ -57,7 +65,6 @@ class Baidu_Maps_API {
 				$(document).ready(function () {
 					// Create the map
 					var map = new BMap.Map('<?php echo $id; ?>');
-					map.setMapStyle({features: ['road', 'water', 'land', 'building']});
 					map.centerAndZoom(new BMap.Point(<?php echo $center_lat; ?>, <?php echo $center_lng; ?>), <?php echo $zoom; ?>);
 
 					<?php foreach($markers as $marker_count => $marker) : ?>
@@ -72,7 +79,8 @@ class Baidu_Maps_API {
 							$meta_fgcolor = $marker[$prefix . 'fgcolor' . '-' . $marker_count];
 							$meta_isopen = $marker[$prefix . 'isopen' . '-' . $marker_count];
 
-							if(($meta_lat == '' || !is_numeric($meta_lat)) && ($meta_lng == '' || !is_numeric($meta_lng))) continue;
+							if(($meta_lat == '' || !is_numeric($meta_lat))
+									&& ($meta_lng == '' || !is_numeric($meta_lng))) continue;
 					?>
 
 					var point = new BMap.Point(<?php echo $meta_lat?>, <?php echo $meta_lng?>);

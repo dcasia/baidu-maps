@@ -47,15 +47,21 @@
 		html+= "<div class='markers'>";
 		html+= "<div class='marker-controls'>";
 		html+= "<a href='#'class='button choose_image'> Choose Image </a>";
-		html+= "<input class='icon-input' style='display: none;' type='text' name='" + prefix + 'icon' + '-' + marker_count + "' value='' >";
+		html+= "<input class='icon-input' style='display: none;' type='text' name='" + prefix + 'icon' + '-' + marker_count + "' value='" + pluginUrl+'icons/marker.png' + "' >";
 		html+= "<a href='#'class='button delete_marker'> Delete Marker </a>";
-		html+= "<div class='img_wrap'> <img src='' width='32' height='32' ></div>";
+		html+= "<div class='img_wrap'> <img src='" + pluginUrl +'icons/marker.png' + "' width='32' height='32' ></div>";
 		html+= "</div>";
 
 		html+= "<div class='marker_row marker_row_default marker_row_name'>";
 		html+= "<label> Marker Name </label>";
 		html+= "<input type='text' name='" + prefix + 'name' + '-' + marker_count + "' value='' size='30' >";
 		html+= "</div>";
+
+		html+= "<div class='marker_row marker_row_description marker_row_default'>";
+		html+= "<label> Marker Description </label>";
+		html+= "<input type='text' name='" + prefix + 'description' + '-' + marker_count + "' value='' size='30' >";
+		html+= "</div>";
+
 		html+= "<div class='marker_row marker_row_location'>";
 		html+= "<label> Latitude / Longitude </label>";
 		html+= "<input type='text' name='" + prefix + 'lat' + '-' + marker_count + "' value='' size='30' >";
