@@ -52,9 +52,11 @@ class Baidu_Maps_API {
 
 		if(($center_lat == '' || !is_numeric($center_lat))){
 			$center_lat = '121.491';
-		}elseif(($center_lng == '' || !is_numeric($center_lng))){
+		}
+		if(($center_lng == '' || !is_numeric($center_lng))){
 			$center_lng = '31.233';
-		}elseif(($zoom == '' || !is_numeric($center_lng))){
+		}
+		if(($zoom == '' || !is_numeric($center_lng))){
 			$zoom = 13;
 		}
 
