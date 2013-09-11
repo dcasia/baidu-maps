@@ -7,34 +7,43 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Baidu Maps is a Wordpress plugin to integrate Baidu maps and extend the functionality with custom markers.
+Baidu Maps is a Wordpress plugin to easily integrate Baidu maps in to your site.
+Easily add multiple locations with custom markers and data.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections
+This plugin allows to integrate one or more Baidu Maps in any page using shortcodes.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Along with that, this plugin is able customize the map to contain several custom markers
+with options to add/change  location coordinates, foreground/background colors, and even the marker icons!
 
-A few notes about the sections above:
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+Basic Usage with shortcodes :
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+To provide a map with the width and height of 500 * 400,
+centered at latitude : 116.403, longitude : 39.900
+with a zoom of '12'
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+[bmap width="500" height="400" lat="116.403" lng="39.900" zoom="12"]
+
+
+Advanced Usage Baidu Maps post-type :
+
+1. Enter your Baidu Developers API Key (if you have not already).
+1. Select the "Baidu Maps" post type from the wordpess menu.
+1. Click on "Add New".
+1. Enter the map details (height, width, zoom and coordinates).
+1. Upon publishing, add the new generated shortcode to the page.
+
+
+Adding a Marker on the map (optional)
+
+1. Click on "Add Marker" below to add a new marker to this map.
+1. Enter the marker details (name, description, coordinates, background color, font color).
+1. You may also change the default marker image with you own image, click on "Choose Image" to select an image.
+1. Click on "Show Marker Details" if you wish to see the details visible at start.
+
+
 
 == Installation ==
 
@@ -59,17 +68,9 @@ To obtain the API Key please visit : http://lbsyun.baidu.com/apiconsole/key?appl
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets 
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png` 
-(or jpg, jpeg, gif).
-2. This is the second screen shot
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
 
 
 == Upgrade Notice ==
