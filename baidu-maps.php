@@ -42,7 +42,7 @@ class Baidu_Maps {
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
-	function __construct() {
+	public function __construct() {
 
 		// Set the plugin path
 		$this->plugin_path = dirname( __FILE__ );
@@ -53,15 +53,22 @@ class Baidu_Maps {
 		// Set the plugin url
 		$this->plugin_url = WP_PLUGIN_URL . DIRECTORY_SEPARATOR . 'baidu-maps' . DIRECTORY_SEPARATOR;
 
-		load_plugin_textdomain( 'baidu-maps', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+
+		load_plugin_textdomain( 'baidu-maps', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 
+
+		// Register the shortcode
 		add_shortcode( 'bmap', array( $this, 'shortcode' ) );
 
 
+		// Initialize the admin interface
 		$admin = new Baidu_Maps_Admin();
+
+		add_action( 'admin_notices', array( $this, 'displayAdminNotices' ) );
 
 	}
 
@@ -135,9 +142,20 @@ class Baidu_Maps {
 			'height' => 300,
 		), $atts ) );
 
-		return $id > 0 ? $this->makeMapWithID( $id ) : $this->makeMap( $zoom, $lat, $lng, $width, $height);
+		return $id > 0 ? $this->makeMapWithID( $id ) : $this->makeMap( $zoom, $lat, $lng, $width, $height );
 	}
 
+	/**
+	 * Returns a Map Element (div) created with the parameters provided below.
+	 *
+	 * @param $zoom
+	 * @param $lat
+	 * @param $lng
+	 * @param $width
+	 * @param $height
+	 *
+	 * @return $map_element
+	 */
 	public function makeMap( $zoom, $lat, $lng, $width, $height ) {
 		$id             = uniqid();
 		$baidu_maps_api = new Baidu_Maps_API();
@@ -147,6 +165,13 @@ class Baidu_Maps {
 		return $map_element;
 	}
 
+	/**
+	 * Returns a Map Element (div) created with the id of the map, created with the baidu maps admin.
+	 *
+	 * @param $id
+	 *
+	 * @return $map_element
+	 */
 	public function makeMapWithID( $id ) {
 		$baidu_maps_api = new Baidu_Maps_API();
 		$map_element    = $baidu_maps_api->createMapWithID( $id, $zoom, $lat, $lng );
@@ -154,11 +179,19 @@ class Baidu_Maps {
 		return $map_element;
 	}
 
+	public function displayAdminNotices() {
+		// Check if API Key is entered
+		if ( $this->settings['api_key'] == '' && current_user_can( 'manage_options' ) ) {
+			global $post_type;
+			if ( $post_type == 'bmap' ) {
+				$notice[] = "<div class='error'>";
+				$notice[] = "<p>" . __("You have not entered your Baidu Developers API Key") . " : " . "<a href='" . admin_url("options-general.php?page=baidu-maps-admin") . "'>" . __("Click Here to enter it") . "</a></p> </div>";
+
+				echo implode("\n", $notice);
+			}
+		}
+	}
+
 }
 
-function Baidu_Maps() {
-	$baidu_maps = new Baidu_Maps();
-	$baidu_maps->makeMap();
-}
-
-$baidu_maps = new Baidu_Maps();
+new Baidu_Maps;

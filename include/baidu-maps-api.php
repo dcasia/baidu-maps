@@ -3,23 +3,16 @@
 
 class Baidu_Maps_API {
 
-	/**
-	 * Start up
-	 */
-	public function __construct() {
-
-	}
 
 	/**
 	 *    Create HTML for the Baidu Map
 	 */
 	public function createMapElement( $id, $width, $height, $full_width ) {
-		$height = $height . 'px';
-		$width  = $full_width ? '100%' : $width . 'px';
+		$height = esc_attr($height) . 'px';
+		$width  = $full_width ? '100%' : esc_attr($width) . 'px';
 
-
-		$html[] = "<div class='baidu-map-container' style='width: $width' >";
-		$html[] = "<div id='$id' class='baidu-map' style='width: $width; height: $height;'></div>";
+		$html[] = "<div class='baidu-map-container' style='width: {$width}' >";
+		$html[] = "<div id='$id' class='baidu-map' style='width: {$width}; height: {$height};'></div>";
 		$html[] = "</div>";
 
 		return implode( "\n", $html );
@@ -59,7 +52,7 @@ class Baidu_Maps_API {
 
 		?>
 
-		<script type='text/javascript'>
+		<script>
 			(function ($) {
 				$(document).ready(function () {
 					// Create the map
@@ -79,26 +72,26 @@ class Baidu_Maps_API {
 							$meta_fgcolor = $marker[$prefix . 'fgcolor' . '-' . $marker_count];
 							$meta_isopen = $marker[$prefix . 'isopen' . '-' . $marker_count];
 
-							if(($meta_lat == '' || !is_numeric($meta_lat)) && ($meta_lng == '' || !is_numeric($meta_lng)))
+							if(($meta_lat == '' || !is_numeric($meta_lat)) && ($meta_lng == '' || !is_numeric($meta_lng))) continue;
 					?>
 
 					var point = new BMap.Point(<?php echo $meta_lat?>, <?php echo $meta_lng?>);
-					var checked_isopen = "<?php echo $meta_isopen ?>";
+					var checked_isopen = "<?php echo esc_attr($meta_isopen); ?>";
+
 					var data = {
-						name       : "<?php echo $meta_name; ?>",
-						description: "<?php echo $meta_description; ?>",
-						bgcolor    : "<?php echo $meta_bgcolor; ?>",
-						fgcolor    : "<?php echo $meta_fgcolor; ?>",
+						name       : "<?php echo esc_attr($meta_name); ?>",
+						description: "<?php echo esc_attr($meta_description); ?>",
+						bgcolor    : "<?php echo esc_attr($meta_bgcolor); ?>",
+						fgcolor    : "<?php echo esc_attr($meta_fgcolor); ?>",
 						isHidden   : checked_isopen ? false : true,
 						marker     : ''
-					}
+					};
 
 					var myIcon = new BMap.Icon("<?php echo $meta_icon ?>", new BMap.Size(22, 33));
 					var marker_icon = new BMap.Marker(point, {icon: myIcon});
 
 					data.marker = marker_icon;
 					var marker = new Marker(point, data);
-
 
 					map.addOverlay(marker_icon);
 					map.addOverlay(marker);

@@ -21,7 +21,7 @@
 .marker-overlay:after {
 	top: 100%;
 	border: solid transparent;
-	content: " ";
+	content: "";
 	height: 0;
 	width: 0;
 	position: absolute;

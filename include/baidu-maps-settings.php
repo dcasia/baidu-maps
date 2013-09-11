@@ -37,7 +37,7 @@ class Baidu_Maps_Settings {
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
-			<h2>Baidu Maps</h2>
+			<h2><?php _e("Baidu Maps", 'baidu-maps'); ?></h2>
 
 			<form method="post" action="options.php">
 				<?php
@@ -63,14 +63,14 @@ class Baidu_Maps_Settings {
 
 		add_settings_section(
 			'baidu_maps_setting_general',
-			'Baidu Maps General Settings',
+			__('Baidu Maps General Settings', 'baidu-maps'),
 			array( $this, 'print_section_info' ),
 			'baidu-maps-settings'
 		);
 
 		add_settings_field(
 			'api_key',
-			'Baidu Developers API Key',
+			__('Baidu Developers API Key', 'baidu-maps'),
 			array( $this, 'api_key_callback' ),
 			'baidu-maps-settings',
 			'baidu_maps_setting_general'
@@ -93,7 +93,7 @@ class Baidu_Maps_Settings {
 	 * Print the Section text
 	 */
 	public function print_section_info() {
-		print 'Enter your settings below:';
+		echo _e('Enter your settings below:', 'baidu-maps');
 	}
 
 	/**
