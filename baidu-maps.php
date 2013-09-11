@@ -68,7 +68,7 @@ class Baidu_Maps {
 		// Initialize the admin interface
 		$admin = new Baidu_Maps_Admin();
 
-		add_action( 'admin_notices', array( $this, 'displayAdminNotices' ) );
+		add_action( 'admin_notices', array( $this, 'display_admin_notices' ) );
 
 	}
 
@@ -181,7 +181,7 @@ class Baidu_Maps {
 		return $map_element;
 	}
 
-	public function displayAdminNotices() {
+	public function display_admin_notices() {
 		// Check if API Key is entered
 		if ( $this->settings['api_key'] == '' && current_user_can( 'manage_options' ) ) {
 			global $post_type;
