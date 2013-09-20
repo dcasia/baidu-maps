@@ -28,7 +28,7 @@ Marker.prototype.initialize = function (map) {
 
 	var div = document.createElement("div");
 
-	div.classList.add('marker-overlay');
+	div.className += ' marker-overlay';
 	if (this._data.bgcolor) {
 		div.style.backgroundColor = this._data.bgcolor;
 		div.style.borderColor = this._data.bgcolor;
@@ -36,10 +36,10 @@ Marker.prototype.initialize = function (map) {
 	if (this._data.fgcolor) div.style.color = this._data.fgcolor;
 
 	var markerName = document.createElement("span");
-	markerName.classList.add('marker-name');
+	markerName.className += ' marker-name';
 	markerName.innerHTML = this._data.name;
 	var markerDescription = document.createElement("span");
-	markerDescription.classList.add('marker-description');
+	markerDescription.className += ' marker-description';
 	markerDescription.innerHTML = this._data.description;
 
 	div.appendChild(markerName);
