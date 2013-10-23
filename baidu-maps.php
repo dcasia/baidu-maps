@@ -51,7 +51,7 @@ class Baidu_Maps {
 		$this->settings = get_option( 'baidu_maps_settings' );
 
 		// Set the plugin url
-		$this->plugin_url = WP_PLUGIN_URL . DIRECTORY_SEPARATOR . plugin_basename(__DIR__) . DIRECTORY_SEPARATOR;
+		$this->plugin_url = WP_PLUGIN_URL . DIRECTORY_SEPARATOR . plugin_basename( __DIR__ ) . DIRECTORY_SEPARATOR;
 
 		load_plugin_textdomain( 'baidu-maps', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 
@@ -113,6 +113,9 @@ class Baidu_Maps {
 	 */
 	public function register_admin_scripts() {
 		// Enqueue Baidu Maps Script
+		wp_register_script( 'baidu-maps-script-api', 'http://api.map.baidu.com/api?v=2.0&ak=' . $this->settings['api_key'], false, true );
+		wp_enqueue_script( 'baidu-maps-script-api' );
+
 		wp_register_style( 'baidu-maps-style-admin', $this->plugin_url . 'css/admin.css' );
 		wp_enqueue_style( 'baidu-maps-style-admin' );
 
@@ -120,6 +123,7 @@ class Baidu_Maps {
 		wp_enqueue_script( 'baidu-maps-script-admin' );
 
 		wp_localize_script( 'baidu-maps-script-admin', 'pluginUrl', $this->plugin_url );
+		wp_localize_script( 'baidu-maps-script-admin', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 
 		wp_enqueue_script( 'thickbox' );
 		wp_enqueue_style( 'thickbox' );

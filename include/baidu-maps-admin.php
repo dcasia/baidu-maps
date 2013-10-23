@@ -17,6 +17,8 @@ class Baidu_Maps_Admin {
 		add_filter( 'manage_edit-bmap_columns', array( $this, 'set_baidu_maps_custom_columns' ) );
 		add_action( 'manage_bmap_posts_custom_column', array( $this, 'baidu_maps_custom_column' ), 10, 2 );
 
+		add_action( 'wp_ajax_get_bmap_coordinates_from_link', array( $this, 'get_bmap_coordinates_from_link' ) );
+
 	}
 
 	/**
@@ -64,8 +66,9 @@ class Baidu_Maps_Admin {
 	 *
 	 */
 	public function create_meta_box() {
-		add_meta_box( 'bmap-map-details', 'Map Details', array( $this, 'render_meta_box_map_details' ), 'bmap', 'normal', 'high' );
+		add_meta_box( 'bmap-map-details', 'Map Details', array( $this, 'render_meta_box_map_details' ), 'bmap', 'side', 'high' );
 		add_meta_box( 'bmap-map-markers', 'Map Markers', array( $this, 'render_meta_box_map_markers' ), 'bmap', 'normal', 'high' );
+		add_meta_box( 'bmap-map-location-check', 'Location Check', array( $this, 'render_meta_box_map_location_check' ), 'bmap', 'side', 'low' );
 	}
 
 	/**
@@ -103,13 +106,13 @@ class Baidu_Maps_Admin {
 				'type'  => 'text'
 			),
 			array(
-				'label' => __( 'Map Center (Latitude)', 'baidu-maps' ),
+				'label' => __( 'Map (Latitude)', 'baidu-maps' ),
 				'desc'  => __( 'Enter the map centering latitude', 'baidu-maps' ),
 				'id'    => $prefix . 'center_lat',
 				'type'  => 'text'
 			),
 			array(
-				'label' => __( 'Map Center (Longitude)', 'baidu-maps' ),
+				'label' => __( 'Map (Longitude)', 'baidu-maps' ),
 				'desc'  => __( 'Enter the map centering longitude', 'baidu-maps' ),
 				'id'    => $prefix . 'center_lng',
 				'type'  => 'text'
@@ -130,7 +133,7 @@ class Baidu_Maps_Admin {
 
 		wp_nonce_field( 'baidu_maps_meta_box_map_details_nonce', 'baidu_maps_meta_box_nonce' );
 
-		$meta_box_description = __("Enter your map details here ...", 'baidu-maps');
+		$meta_box_description = __( "Enter your map details here ...", 'baidu-maps' );
 
 		$html[] = "<p>";
 		$html[] = $meta_box_description;
@@ -147,7 +150,7 @@ class Baidu_Maps_Admin {
 			$html[] = "<td>";
 			switch ( $field['type'] ) {
 				case 'text':
-					$html[] = "<input type='text' name='" . $field['id'] . "' id='" . $field['id'] . "' value='" . $meta . "' size='30'>";
+					$html[] = "<input type='text' name='" . $field['id'] . "' id='" . $field['id'] . "' value='" . $meta . "' size='10'>";
 					$html[] = "<br>";
 					$html[] = "<span class='description'>" . $field['description'] . "</span>";
 					break;
@@ -183,7 +186,7 @@ class Baidu_Maps_Admin {
 		wp_nonce_field( 'baidu_maps_meta_box_marker_details_nonce', 'baidu_maps_meta_box_markers_nonce' );
 
 		$html[] = "<p>";
-		$html[] = "<a href='#' class='button insert_marker'>" . __("Add Marker", 'baidu-maps') . "</a>";
+		$html[] = "<a href='#' class='button insert_marker'>" . __( "Add Marker", 'baidu-maps' ) . "</a>";
 		$html[] = "</p>";
 
 		$markers = get_post_meta( $post->ID, 'markers', true );
@@ -205,41 +208,43 @@ class Baidu_Maps_Admin {
 
 
 				$html[] = "<div class='marker-controls'>";
-				$html[] = "<a href='#'class='button choose_image'>" . __('Choose Image', 'baidu-maps') . "</a>";
+				$html[] = "<a href='#'class='button choose_image'>" . __( 'Choose Image', 'baidu-maps' ) . "</a>";
 				$html[] = "<input class='icon-input' style='display: none;' type='text' name='" . $prefix . 'icon' . '-' . $marker_count . "' value='" . $meta_icon . "' >";
-				$html[] = "<a href='#'class='button delete_marker'>" . __('Delete Marker', 'baidu-maps') . "</a>";
+				$html[] = "<a href='#'class='button delete_marker'>" . __( 'Delete Marker', 'baidu-maps' ) . "</a>";
 				$html[] = "<div class='img_wrap'> <img src='" . $meta_icon . "' width='32' height='32' ></div>";
 				$html[] = "</div>";
 
 				$html[] = "<div class='marker_row marker_row_name marker_row_default'>";
-				$html[] = "<label>" . __("Marker Name", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Marker Name", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='text' name='" . $prefix . 'name' . '-' . $marker_count . "' value='" . $meta_name . "' size='30' >";
 				$html[] = "</div>";
 				$html[] = "<div class='marker_row marker_row_description marker_row_default'>";
-				$html[] = "<label>" . __("Marker Description", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Marker Description", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='text' name='" . $prefix . 'description' . '-' . $marker_count . "' value='" . $meta_description . "' size='30' >";
 				$html[] = "</div>";
 
 				$html[] = "<div class='marker_row marker_row_location'>";
-				$html[] = "<label>" . __("Latitude / Longitude", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Latitude / Longitude", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='text' name='" . $prefix . 'lat' . '-' . $marker_count . "' value='" . $meta_lat . "' size='30' >";
 				$html[] = "<input type='text' name='" . $prefix . 'lng' . '-' . $marker_count . "' value='" . $meta_lng . "' size='30' >";
+				$html[] = "<br>";
+				$html[] = "<button class='button marker_row_location_grab'>Grab From Map</button>";
 				$html[] = "</div>";
 
 				$html[] = "<div class='marker_row marker_row_default marker_row_color'>";
-				$html[] = "<label>" . __("Background Color", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Background Color", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='text' class='color-picker-control' name='" . $prefix . 'bgcolor' . '-' . $marker_count . "' value='" . $meta_bgcolor . "' size='30' >";
 				$html[] = "</div>";
 
 				$html[] = "<div class='marker_row marker_row_default marker_row_color'>";
-				$html[] = "<label>" . __("Font Color", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Font Color", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='text' class='color-picker-control' name='" . $prefix . 'fgcolor' . '-' . $marker_count . "' value='" . $meta_fgcolor . "' size='30' >";
 				$html[] = "</div>";
 
 				$html[] = "<div class='marker_row marker_row_default marker_row_is_open'>";
-				$html[] = "<label>" . __("Show Marker Details", 'baidu-maps') . "</label>";
+				$html[] = "<label>" . __( "Show Marker Details", 'baidu-maps' ) . "</label>";
 				$html[] = "<input type='checkbox' name='" . $prefix . 'isopen' . '-' . $marker_count . "' " . $checked_isopen . "/>";
-				$html[] = "<span class='caption'>" . __("Check to always show marker details", 'baidu-maps') . "</span>";
+				$html[] = "<span class='caption'>" . __( "Check to always show marker details", 'baidu-maps' ) . "</span>";
 				$html[] = "</div>";
 
 				$html[] = "</div>";
@@ -250,6 +255,47 @@ class Baidu_Maps_Admin {
 
 		echo implode( "\n", $html );
 	}
+
+	public function render_meta_box_map_location_check() {
+		$baidu_maps_api = new Baidu_Maps_API();
+		$id             = 'admin-map-element';
+		$map            = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
+		$baidu_maps_api->createMap( $id, '13', '116.342', '39.3412' );
+
+
+		$html[] = "<div class='location-check-box'>";
+		$html[] = "<h4>Search for the locations you want the details of</h4>";
+
+		$html[] = "<div class='location-check-search'>";
+		$html[] = "<p><label>Enter the serach query</label>";
+		$html[] = "<input type='text' class='location-check-url' />";
+		$html[] = "<button class='location-check-button button'>Search</button>";
+		$html[] = "</p>";
+
+		$html[] = "<p><label>Select the zoom level</label>";
+		$html[] = "<input type='number' min='1' max='19' value='13' class='location-check-zoom' />";
+		$html[] = "</p>";
+		$html[] = "</div>";
+
+		$html[] = "<div class='location-check-details'>";
+		$html[] = "<table class='location-check-results widefat'>";
+		$html[] = "<tr><th>Latitude : </th><td class='lat'>12.13313</td></tr>";
+		$html[] = "<tr><th>Longitude : </th><td class='lng'>414.231</td></tr>";
+		$html[] = "<tr><td colspan='2'><button class='button button-full-width location-check-insert'>Set as Point</button><td></tr>";
+		$html[] = "</table>";
+		$html[] = "</div>";
+
+		$html[] = "<br>";
+		$html[] = $map;
+		$html[] = "<p class='location-check-currc'> Current Coordinates (lat, lng)  :  <span class='lat'>0.0</span>, <span class='lng'>0.0</span> </p>";
+		$html[] = "</div>";
+
+		echo implode( "\n", $html );
+	}
+
+
+	// $html[] = "<h4>Results</h4>";
+
 
 	public function save_meta_box_map_details( $post_id ) {
 
@@ -338,12 +384,21 @@ class Baidu_Maps_Admin {
 					echo $lng;
 				}
 				else {
-					echo _e("No Location Defined", 'baidu-maps');
+					echo _e( "No Location Defined", 'baidu-maps' );
 				}
 
 				break;
 
 		}
+	}
+
+	public function get_bmap_coordinates_from_link() {
+		$link = $_POST['link'];
+
+		$baidu_maps_api = new Baidu_Maps_API();
+		echo $json = json_encode( $baidu_maps_api->get_bmap_coordinates_from_link( $link ) );
+
+		die();
 	}
 
 }

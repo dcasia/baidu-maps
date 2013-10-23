@@ -8,8 +8,8 @@ class Baidu_Maps_API {
 	 *    Create HTML for the Baidu Map
 	 */
 	public function createMapElement( $id, $width, $height, $full_width ) {
-		$height = esc_attr($height) . 'px';
-		$width  = $full_width ? '100%' : esc_attr($width) . 'px';
+		$height = esc_attr( $height ) . 'px';
+		$width  = $full_width ? '100%' : esc_attr( $width ) . 'px';
 
 		$html[] = "<div class='baidu-map-container' style='width: {$width}' >";
 		$html[] = "<div id='$id' class='baidu-map' style='width: {$width}; height: {$height};'></div>";
@@ -25,8 +25,11 @@ class Baidu_Maps_API {
 			(function ($) {
 				$(document).ready(function () {
 					// Create the map
-					var map = new BMap.Map('<?php echo $id; ?>');
-					map.centerAndZoom(new BMap.Point(<?php echo $lat; ?>, <?php echo $lng; ?>), <?php echo $zoom; ?>);
+					window.map = new BMap.Map('<?php echo $id; ?>', {
+						enableMapClick: false
+					});
+					map.centerAndZoom(new BMap.Point(<?php echo $lng; ?>, <?php echo $lat; ?>), <?php echo $zoom; ?>);
+
 				})
 			})(window.jQuery)
 		</script>
@@ -50,13 +53,13 @@ class Baidu_Maps_API {
 
 		$map_element = $this->createMapElement( $id, $width, $height, $full_width );
 
-		if(($center_lat == '' || !is_numeric($center_lat))){
+		if ( ( $center_lat == '' || ! is_numeric( $center_lat ) ) ) {
 			$center_lat = '121.491';
 		}
-		if(($center_lng == '' || !is_numeric($center_lng))){
+		if ( ( $center_lng == '' || ! is_numeric( $center_lng ) ) ) {
 			$center_lng = '31.233';
 		}
-		if(($zoom == '' || !is_numeric($center_lng))){
+		if ( ( $zoom == '' || ! is_numeric( $center_lng ) ) ) {
 			$zoom = 13;
 		}
 
@@ -66,8 +69,10 @@ class Baidu_Maps_API {
 			(function ($) {
 				$(document).ready(function () {
 					// Create the map
-					var map = new BMap.Map('<?php echo $id; ?>');
-					map.centerAndZoom(new BMap.Point(<?php echo $center_lat; ?>, <?php echo $center_lng; ?>), <?php echo $zoom; ?>);
+					var map = new BMap.Map('<?php echo $id; ?>', {
+						enableMapClick: false
+					});
+					map.centerAndZoom(new BMap.Point(<?php echo $center_lng; ?>, <?php echo $center_lat; ?>), <?php echo $zoom; ?>);
 
 					<?php foreach($markers as $marker_count => $marker) : ?>
 
@@ -85,7 +90,7 @@ class Baidu_Maps_API {
 									&& ($meta_lng == '' || !is_numeric($meta_lng))) continue;
 					?>
 
-					var point = new BMap.Point(<?php echo $meta_lat?>, <?php echo $meta_lng?>);
+					var point = new BMap.Point(<?php echo $meta_lng?>, <?php echo $meta_lat?>);
 					var checked_isopen = "<?php echo esc_attr($meta_isopen); ?>";
 
 					var data = {
@@ -115,5 +120,20 @@ class Baidu_Maps_API {
 
 
 		return $map_element;
+	}
+
+	public function get_bmap_coordinates_from_link( $link ) {
+		// $headers = get_headers('http://www.example.com');
+		// $longurl = $headers['Location'];
+
+		$query = parse_url( $link, PHP_URL_QUERY );
+		parse_str( $query, $params );
+
+		//   $coord = split(',', $c);
+		//   $lat = $coord[0];
+		//   $lng = $coord[1];
+
+		// return array('lat' => '1', 'lng' => 2, 'zoom' => $l);
+		return $params;
 	}
 }

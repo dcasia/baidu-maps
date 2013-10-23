@@ -57,7 +57,7 @@
 }
 
 .marker_row{
-	padding: 5px 170px;
+	padding: 5px 0px 5px 170px;
 }
 
 .marker_row_default label{
@@ -78,6 +78,11 @@
 	width: 100px;
 }
 
+.marker_row_location_grab{
+	margin-left: 125px !important;
+	width: 205px;
+}
+
 .marker_row_color label{
 	margin-top: -15px;
 }
@@ -92,3 +97,35 @@
 	color: #666;
 }
 
+
+.location-check-search{
+	display: inline-block;
+	float: left;
+	margin: 15px 30px 25px 0px;
+}
+
+.location-check-currc{
+	text-align: right;
+	font-style: italic;
+}
+
+.location-check-search label{
+	margin-right: 10px;
+	width: 125px;
+	display: inline-block;
+}
+
+.location-check-details{
+	display: inline-block;
+	float: left;
+	width: 180px;
+}
+
+.location-check-results td{
+	padding-top: 8px;
+}
+
+.button-full-width{
+	width: 100%;
+	outline: none;
+}
