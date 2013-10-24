@@ -68,7 +68,7 @@ class Baidu_Maps_Admin {
 	public function create_meta_box() {
 		add_meta_box( 'bmap-map-details', 'Map Details', array( $this, 'render_meta_box_map_details' ), 'bmap', 'side', 'high' );
 		add_meta_box( 'bmap-map-markers', 'Map Markers', array( $this, 'render_meta_box_map_markers' ), 'bmap', 'normal', 'high' );
-		add_meta_box( 'bmap-map-location-check', 'Location Check', array( $this, 'render_meta_box_map_location_check' ), 'bmap', 'side', 'low' );
+		add_meta_box( 'bmap-map-location-check', 'Location Check', array( $this, 'render_meta_box_map_location_check' ), 'bmap', 'normal', 'low' );
 	}
 
 	/**
