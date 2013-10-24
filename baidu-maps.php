@@ -190,7 +190,7 @@ class Baidu_Maps {
 			global $post_type;
 			if ( $post_type == 'bmap' ) {
 				$notice[] = "<div class='error'>";
-				$notice[] = "<p>" . __( "You have not entered your Baidu Developers API Key" ) . " : " . "<a href='" . admin_url( "options-general.php?page=baidu-maps-admin" ) . "'>" . __( "Click Here to enter it" ) . "</a></p> </div>";
+				$notice[] = "<p>" . __( "You have not entered your Baidu Developers API Key", 'baidu-maps' ) . " : " . "<a href='" . admin_url( "options-general.php?page=baidu-maps-admin" ) . "'>" . __( "Click Here to enter it", 'baidu-maps' ) . "</a></p> </div>";
 
 				echo implode( "\n", $notice );
 			}

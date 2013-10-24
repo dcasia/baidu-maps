@@ -97,14 +97,28 @@
 			scrollTop: $marker.offset().top - 100
 		});
 
+		$marker.css('background-color', '#fafad2');
+
+		setTimeout(function () {
+			$marker.animate({
+				backgroundColor: 'transparent'
+			});
+		}, 1000)
+
 		$('.color-picker-control').wpColorPicker();
 
 		return $marker;
 	}
 
 	function remove_marker($el) {
-		var parent = jQuery($el).parent().parent();
-		parent.remove();
+		var $parent = jQuery($el).parent().parent();
+		$parent.css('position', 'relative');
+		$parent.animate({
+			left: '100px',
+			opacity : 0
+		}, function(){
+			$parent.remove();
+		});
 
 		reorder_markers();
 	}
@@ -127,8 +141,9 @@
 
 		var searchSettings = {
 			onSearchComplete: function (w) {
-				console.log('hi');
-				map.centerAndZoom(w.getPoi(0).point, 12);
+				if (typeof(w.getPoi(0)) != 'undefined'){
+					map.centerAndZoom(w.getPoi(0).point, 12);
+				}
 			}
 		}
 		var search = new BMap.LocalSearch(map, searchSettings);
@@ -138,10 +153,10 @@
 			baiduMapSearchFunction();
 		});
 
-		$locationCheckUrl.keyup(function (e) {
+		$locationCheckUrl.keypress(function (e) {
 			if (e.keyCode == 13) {
-				e.preventDefault();
 				$(this).trigger('enter');
+				return false;
 			}
 		});
 		$locationCheckUrl.on('enter', function (e) {
@@ -183,6 +198,10 @@
 			if (zoom > 0 && zoom < 20) {
 				map.zoomTo(parseInt(zoom));
 			}
+		});
+
+		map.addEventListener("ondblclick", function () {
+			$locationCheckZoom.val(map.getZoom());
 		});
 
 		$grabFromMap.on('click', function (e) {

@@ -2,6 +2,10 @@
 
 }
 
+#bmap-map-details input{
+	min-width: 0;
+}
+
 .baidu-maps-metabox-wrapper .input-group{
 	margin-bottom: 20px;
 }

@@ -39,7 +39,7 @@ class Baidu_Maps_Admin {
 			'not_found'          => __( 'No Maps found', 'baidu-maps' ),
 			'not_found_in_trash' => __( 'No Maps found in Trash', 'baidu-maps' ),
 			'parent_item_colon'  => '',
-			'menu_name'          => __( 'Baidu Maps' )
+			'menu_name'          => __( 'Baidu Maps', 'baidu-maps' )
 		);
 
 		$args = array(
@@ -260,41 +260,42 @@ class Baidu_Maps_Admin {
 		$baidu_maps_api = new Baidu_Maps_API();
 		$id             = 'admin-map-element';
 		$map            = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
-		$baidu_maps_api->createMap( $id, '13', '116.342', '39.3412' );
+		$default_lat    = '39.915';
+		$default_lng    = '116.404';
+		$default_zoom   = '13';
+
+		$baidu_maps_api->createMap( $id, $default_zoom, $default_lat, $default_lng );
 
 
 		$html[] = "<div class='location-check-box'>";
-		$html[] = "<h4>Search for the locations you want the details of</h4>";
+		$html[] = "<h4>" . __( 'Search for the locations you want the details of', 'baidu-maps' ) . "</h4>";
 
 		$html[] = "<div class='location-check-search'>";
-		$html[] = "<p><label>Enter the serach query</label>";
+		$html[] = "<p><label>" . __( 'Enter the serach query', 'baidu-maps' ) . "</label>";
 		$html[] = "<input type='text' class='location-check-url' />";
-		$html[] = "<button class='location-check-button button'>Search</button>";
+		$html[] = "<button class='location-check-button button'>" . __( 'Search', 'baidu-maps' ) . "</button>";
 		$html[] = "</p>";
 
-		$html[] = "<p><label>Select the zoom level</label>";
-		$html[] = "<input type='number' min='1' max='19' value='13' class='location-check-zoom' />";
+		$html[] = "<p><label>" . __( 'Select the zoom level', 'baidu-maps' ) . "</label>";
+		$html[] = "<input type='number' min='1' max='19' value='" . $default_zoom . "' class='location-check-zoom' />";
 		$html[] = "</p>";
 		$html[] = "</div>";
 
 		$html[] = "<div class='location-check-details'>";
 		$html[] = "<table class='location-check-results widefat'>";
-		$html[] = "<tr><th>Latitude : </th><td class='lat'>12.13313</td></tr>";
-		$html[] = "<tr><th>Longitude : </th><td class='lng'>414.231</td></tr>";
+		$html[] = "<tr><th>" . __( 'Latitude :', 'baidu-maps' ) . " </th><td class='lat'>" . $default_lat . "</td></tr>";
+		$html[] = "<tr><th>" . __( 'Longitude :', 'baidu-maps' ) . " </th><td class='lng'>" . $default_lng . "</td></tr>";
 		$html[] = "<tr><td colspan='2'><button class='button button-full-width location-check-insert'>Set as Point</button><td></tr>";
 		$html[] = "</table>";
 		$html[] = "</div>";
 
 		$html[] = "<br>";
 		$html[] = $map;
-		$html[] = "<p class='location-check-currc'> Current Coordinates (lat, lng)  :  <span class='lat'>0.0</span>, <span class='lng'>0.0</span> </p>";
+		$html[] = "<p class='location-check-currc'> " . __( 'Current Coordinates (lat, lng)  :', 'baidu-maps' ) . "  <span class='lat'>0.0</span>, <span class='lng'>0.0</span> </p>";
 		$html[] = "</div>";
 
 		echo implode( "\n", $html );
 	}
-
-
-	// $html[] = "<h4>Results</h4>";
 
 
 	public function save_meta_box_map_details( $post_id ) {
