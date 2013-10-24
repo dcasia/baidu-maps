@@ -141,8 +141,8 @@ class Baidu_Maps {
 		extract( shortcode_atts( array(
 			'id'     => 0,
 			'zoom'   => 13,
-			'lat'    => '121.491',
-			'lng'    => '31.233',
+			'lat'    => '39.915',
+			'lng'    => '116.404',
 			'width'  => 500,
 			'height' => 300,
 		), $atts ) );
@@ -190,7 +190,7 @@ class Baidu_Maps {
 			global $post_type;
 			if ( $post_type == 'bmap' ) {
 				$notice[] = "<div class='error'>";
-				$notice[] = "<p>" . __( "You have not entered your Baidu Developers API Key", 'baidu-maps' ) . " : " . "<a href='" . admin_url( "options-general.php?page=baidu-maps-admin" ) . "'>" . __( "Click Here to enter it", 'baidu-maps' ) . "</a></p> </div>";
+				$notice[] = "<p>" . __( "You have not entered your Baidu Developers API Key", 'baidu-maps' ) . " : " . "<a href='" . admin_url( "edit.php?post_type=bmap&page=baidu-maps-admin" ) . "'>" . __( "Click Here to enter it", 'baidu-maps' ) . "</a></p> </div>";
 
 				echo implode( "\n", $notice );
 			}

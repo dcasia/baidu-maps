@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Baidu Maps Plugin v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-10-24 05:15:26+0000\n"
+"Last-Translator: Udit\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: baidu-maps.php:193
+#@ default
+msgid "You have not entered your Baidu Developers API Key"
+msgstr ""
+
+#: baidu-maps.php:193
+#@ default
+msgid "Click Here to enter it"
+msgstr ""
+
+#: include/baidu-maps-admin.php:30
+#: include/baidu-maps-admin.php:42
+#: include/baidu-maps-settings.php:40
+#@ baidu-maps
+#@ default
+msgid "Baidu Maps"
+msgstr ""
+
+#: include/baidu-maps-admin.php:31
+#@ baidu-maps
+msgid "Baidu Map"
+msgstr ""
+
+#: include/baidu-maps-admin.php:32
+#: include/baidu-maps-admin.php:33
+#@ baidu-maps
+msgid "Add New Map"
+msgstr ""
+
+#: include/baidu-maps-admin.php:34
+#@ baidu-maps
+msgid "Edit Map"
+msgstr ""
+
+#: include/baidu-maps-admin.php:35
+#@ baidu-maps
+msgid "New Map"
+msgstr ""
+
+#: include/baidu-maps-admin.php:36
+#@ baidu-maps
+msgid "All Maps"
+msgstr ""
+
+#: include/baidu-maps-admin.php:37
+#@ baidu-maps
+msgid "View Map"
+msgstr ""
+
+#: include/baidu-maps-admin.php:38
+#@ baidu-maps
+msgid "Search Maps"
+msgstr ""
+
+#: include/baidu-maps-admin.php:39
+#@ baidu-maps
+msgid "No Maps found"
+msgstr ""
+
+#: include/baidu-maps-admin.php:40
+#@ baidu-maps
+msgid "No Maps found in Trash"
+msgstr ""
+
+#: include/baidu-maps-admin.php:85
+#@ baidu-maps
+msgid "Map Height"
+msgstr ""
+
+#: include/baidu-maps-admin.php:86
+#@ baidu-maps
+msgid "Enter the height in px"
+msgstr ""
+
+#: include/baidu-maps-admin.php:91
+#@ baidu-maps
+msgid "Map Width"
+msgstr ""
+
+#: include/baidu-maps-admin.php:92
+#@ baidu-maps
+msgid "Enter the width in px"
+msgstr ""
+
+#: include/baidu-maps-admin.php:97
+#@ baidu-maps
+msgid "Show full width"
+msgstr ""
+
+#: include/baidu-maps-admin.php:98
+#@ baidu-maps
+msgid "Select to set the map to full width"
+msgstr ""
+
+#: include/baidu-maps-admin.php:103
+#@ baidu-maps
+msgid "Zoom"
+msgstr ""
+
+#: include/baidu-maps-admin.php:104
+#@ baidu-maps
+msgid "Enter the zoom of the map between (1 - 20)"
+msgstr ""
+
+#: include/baidu-maps-admin.php:109
+#@ baidu-maps
+msgid "Map (Latitude)"
+msgstr ""
+
+#: include/baidu-maps-admin.php:110
+#@ baidu-maps
+msgid "Enter the map centering latitude"
+msgstr ""
+
+#: include/baidu-maps-admin.php:115
+#@ baidu-maps
+msgid "Map (Longitude)"
+msgstr ""
+
+#: include/baidu-maps-admin.php:116
+#@ baidu-maps
+msgid "Enter the map centering longitude"
+msgstr ""
+
+#: include/baidu-maps-admin.php:136
+#@ baidu-maps
+msgid "Enter your map details here ..."
+msgstr ""
+
+#: include/baidu-maps-admin.php:189
+#@ baidu-maps
+msgid "Add Marker"
+msgstr ""
+
+#: include/baidu-maps-admin.php:211
+#@ baidu-maps
+msgid "Choose Image"
+msgstr ""
+
+#: include/baidu-maps-admin.php:213
+#@ baidu-maps
+msgid "Delete Marker"
+msgstr ""
+
+#: include/baidu-maps-admin.php:218
+#@ baidu-maps
+msgid "Marker Name"
+msgstr ""
+
+#: include/baidu-maps-admin.php:222
+#@ baidu-maps
+msgid "Marker Description"
+msgstr ""
+
+#: include/baidu-maps-admin.php:227
+#@ baidu-maps
+msgid "Latitude / Longitude"
+msgstr ""
+
+#: include/baidu-maps-admin.php:235
+#@ baidu-maps
+msgid "Background Color"
+msgstr ""
+
+#: include/baidu-maps-admin.php:240
+#@ baidu-maps
+msgid "Font Color"
+msgstr ""
+
+#: include/baidu-maps-admin.php:245
+#@ baidu-maps
+msgid "Show Marker Details"
+msgstr ""
+
+#: include/baidu-maps-admin.php:247
+#@ baidu-maps
+msgid "Check to always show marker details"
+msgstr ""
+
+#: include/baidu-maps-admin.php:364
+#@ baidu-maps
+msgid "Makrers"
+msgstr ""
+
+#: include/baidu-maps-admin.php:365
+#@ baidu-maps
+msgid "Shortcode"
+msgstr ""
+
+#: include/baidu-maps-admin.php:366
+#@ baidu-maps
+msgid "Geolocation"
+msgstr ""
+
+#: include/baidu-maps-admin.php:391
+#@ baidu-maps
+msgid "No Location Defined"
+msgstr ""
+
+#: include/baidu-maps-settings.php:66
+#@ baidu-maps
+msgid "Baidu Maps General Settings"
+msgstr ""
+
+#: include/baidu-maps-settings.php:73
+#@ baidu-maps
+msgid "Baidu Developers API Key"
+msgstr ""
+
+#: include/baidu-maps-settings.php:96
+#@ baidu-maps
+msgid "Enter your settings below:"
+msgstr ""
+

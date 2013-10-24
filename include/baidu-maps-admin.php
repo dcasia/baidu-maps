@@ -268,10 +268,10 @@ class Baidu_Maps_Admin {
 
 
 		$html[] = "<div class='location-check-box'>";
-		$html[] = "<h4>" . __( 'Search for the locations you want the details of', 'baidu-maps' ) . "</h4>";
+		$html[] = "<h4>" . __( 'Find a location', 'baidu-maps' ) . "</h4>";
 
 		$html[] = "<div class='location-check-search'>";
-		$html[] = "<p><label>" . __( 'Enter the serach query', 'baidu-maps' ) . "</label>";
+		$html[] = "<p><label>" . __( 'Enter the Search query', 'baidu-maps' ) . "</label>";
 		$html[] = "<input type='text' class='location-check-url' />";
 		$html[] = "<button class='location-check-button button'>" . __( 'Search', 'baidu-maps' ) . "</button>";
 		$html[] = "</p>";

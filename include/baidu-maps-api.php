@@ -54,10 +54,10 @@ class Baidu_Maps_API {
 		$map_element = $this->createMapElement( $id, $width, $height, $full_width );
 
 		if ( ( $center_lat == '' || ! is_numeric( $center_lat ) ) ) {
-			$center_lat = '121.491';
+			$center_lat = '39.915';
 		}
 		if ( ( $center_lng == '' || ! is_numeric( $center_lng ) ) ) {
-			$center_lng = '31.233';
+			$center_lng = '116.404';
 		}
 		if ( ( $zoom == '' || ! is_numeric( $center_lng ) ) ) {
 			$zoom = 13;
@@ -120,20 +120,5 @@ class Baidu_Maps_API {
 
 
 		return $map_element;
-	}
-
-	public function get_bmap_coordinates_from_link( $link ) {
-		// $headers = get_headers('http://www.example.com');
-		// $longurl = $headers['Location'];
-
-		$query = parse_url( $link, PHP_URL_QUERY );
-		parse_str( $query, $params );
-
-		//   $coord = split(',', $c);
-		//   $lat = $coord[0];
-		//   $lng = $coord[1];
-
-		// return array('lat' => '1', 'lng' => 2, 'zoom' => $l);
-		return $params;
 	}
 }

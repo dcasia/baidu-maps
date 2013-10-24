@@ -19,9 +19,10 @@ class Baidu_Maps_Settings {
 	 */
 	public function add_plugin_page() {
 		// This page will be under "Settings"
-		add_options_page(
-			'Baidu Maps Settings',
-			'Baidu Maps Settings',
+		add_submenu_page(
+			'edit.php?post_type=bmap',
+			__( 'Baidu Maps Settings', 'baidu-maps' ),
+			__( 'Baidu Maps Settings', 'baidu-maps' ),
 			'manage_options',
 			'baidu-maps-admin',
 			array( $this, 'create_admin_page' )
@@ -37,7 +38,7 @@ class Baidu_Maps_Settings {
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
-			<h2><?php _e("Baidu Maps", 'baidu-maps'); ?></h2>
+			<h2><?php _e( "Baidu Maps", 'baidu-maps' ); ?></h2>
 
 			<form method="post" action="options.php">
 				<?php
@@ -63,14 +64,14 @@ class Baidu_Maps_Settings {
 
 		add_settings_section(
 			'baidu_maps_setting_general',
-			__('Baidu Maps General Settings', 'baidu-maps'),
+			__( 'Baidu Maps General Settings', 'baidu-maps' ),
 			array( $this, 'print_section_info' ),
 			'baidu-maps-settings'
 		);
 
 		add_settings_field(
 			'api_key',
-			__('Baidu Developers API Key', 'baidu-maps'),
+			__( 'Baidu Developers API Key', 'baidu-maps' ),
 			array( $this, 'api_key_callback' ),
 			'baidu-maps-settings',
 			'baidu_maps_setting_general'
@@ -93,7 +94,7 @@ class Baidu_Maps_Settings {
 	 * Print the Section text
 	 */
 	public function print_section_info() {
-		echo _e('Enter your settings below:', 'baidu-maps');
+		echo _e( 'Enter your settings below:', 'baidu-maps' );
 	}
 
 	/**
