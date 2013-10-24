@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Baidu Maps Plugin v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-10-24 05:32:53+0000\n"
+"PO-Revision-Date: 2013-10-24 06:21:10+0000\n"
 "Last-Translator: uditvirwani\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "点击此处进行输入"
 
 #: include/baidu-maps-admin.php:30
 #: include/baidu-maps-admin.php:42
-#: include/baidu-maps-settings.php:40
+#: include/baidu-maps-settings.php:41
 #@ baidu-maps
 msgid "Baidu Maps"
 msgstr "百度地图"
@@ -198,17 +198,17 @@ msgstr "地理位置"
 msgid "No Location Defined"
 msgstr "没有定义的位置"
 
-#: include/baidu-maps-settings.php:66
+#: include/baidu-maps-settings.php:67
 #@ baidu-maps
 msgid "Baidu Maps General Settings"
 msgstr "百度地图一般设置"
 
-#: include/baidu-maps-settings.php:73
+#: include/baidu-maps-settings.php:74
 #@ baidu-maps
 msgid "Baidu Developers API Key"
 msgstr "百度开发人员 API 密钥"
 
-#: include/baidu-maps-settings.php:96
+#: include/baidu-maps-settings.php:97
 #@ baidu-maps
 msgid "Enter your settings below:"
 msgstr "在下方输入您的设置："
@@ -216,31 +216,21 @@ msgstr "在下方输入您的设置："
 #: include/baidu-maps-admin.php:109
 #@ baidu-maps
 msgid "Map (Latitude)"
-msgstr ""
+msgstr "地图（纬度）"
 
 #: include/baidu-maps-admin.php:115
 #@ baidu-maps
 msgid "Map (Longitude)"
-msgstr ""
+msgstr "地图（经度）"
 
 #: include/baidu-maps-admin.php:189
 #@ baidu-maps
 msgid "Add Marker"
-msgstr ""
+msgstr "添加标志"
 
 #: include/baidu-maps-admin.php:218
 #@ baidu-maps
 msgid "Marker Name"
-msgstr ""
-
-#: include/baidu-maps-admin.php:271
-#@ baidu-maps
-msgid "Search for the locations you want the details of"
-msgstr ""
-
-#: include/baidu-maps-admin.php:274
-#@ baidu-maps
-msgid "Enter the serach query"
 msgstr ""
 
 #: include/baidu-maps-admin.php:276
@@ -256,15 +246,31 @@ msgstr ""
 #: include/baidu-maps-admin.php:286
 #@ baidu-maps
 msgid "Latitude :"
-msgstr ""
+msgstr "纬度 :"
 
 #: include/baidu-maps-admin.php:287
 #@ baidu-maps
 msgid "Longitude :"
-msgstr ""
+msgstr "经度 :"
 
 #: include/baidu-maps-admin.php:294
 #@ baidu-maps
 msgid "Current Coordinates (lat, lng)  :"
+msgstr ""
+
+#: include/baidu-maps-admin.php:274
+#@ baidu-maps
+msgid "Enter the Search query"
+msgstr ""
+
+#: include/baidu-maps-settings.php:24
+#: include/baidu-maps-settings.php:25
+#@ baidu-maps
+msgid "Baidu Maps Settings"
+msgstr "百度地图设置"
+
+#: include/baidu-maps-admin.php:271
+#@ baidu-maps
+msgid "Find a location"
 msgstr ""
 

@@ -285,7 +285,10 @@ class Baidu_Maps_Admin {
 		$html[] = "<table class='location-check-results widefat'>";
 		$html[] = "<tr><th>" . __( 'Latitude :', 'baidu-maps' ) . " </th><td class='lat'>" . $default_lat . "</td></tr>";
 		$html[] = "<tr><th>" . __( 'Longitude :', 'baidu-maps' ) . " </th><td class='lng'>" . $default_lng . "</td></tr>";
-		$html[] = "<tr><td colspan='2'><button class='button button-full-width location-check-insert'>Set as Point</button><td></tr>";
+		$html[] = "<tr>";
+		$html[] = "<td><button class='button location-check-insert'>" . __( 'Set as Point', 'baidu-maps' ) . "</button></td>";
+		$html[] = "<td><button class='button location-check-center'>" . __( 'Center Here', 'baidu-maps' ) . "</button></td>";
+		$html[] = "</tr>";
 		$html[] = "</table>";
 		$html[] = "</div>";
 

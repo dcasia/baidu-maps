@@ -130,9 +130,10 @@
 		$('.markers').each(function (index) {
 			$(this).find('input').each(function () {
 				var name = $(this).attr('name');
-				var name_split = name.split('-');
-
-				$(this).attr('name', name_split[0] + '-' + index);
+				if(typeof(name) != 'undefined'){
+					var name_split = name.split('-');
+					$(this).attr('name', name_split[0] + '-' + index);
+				}
 			});
 		});
 	}
@@ -217,6 +218,7 @@
 
 		// Insert new point
 		$locationInsert = $('.location-check-insert');
+		$locationCenter = $('.location-check-center');
 		$locationCheckResults = $('.location-check-results');
 
 		$locationInsert.on('click', function (e) {
@@ -228,6 +230,19 @@
 
 			$marker.find('.marker_row_location input').eq(0).val(lat);
 			$marker.find('.marker_row_location input').eq(1).val(lng);
+
+		});
+
+		$locationCenter.on('click', function (e) {
+			e.preventDefault();
+
+			var zoom = $('.location-check-zoom').val();
+			var lat = $locationCheckResults.find('.lat').text();
+			var lng = $locationCheckResults.find('.lng').text();
+
+			$('#baidu_maps_meta_zoom').val(zoom);
+			$('#baidu_maps_meta_center_lat').val(lat);
+			$('#baidu_maps_meta_center_lng').val(lng);
 
 		});
 
