@@ -116,8 +116,10 @@
 		$parent.animate({
 			left: '100px',
 			opacity : 0
-		}, function(){
-			$parent.remove();
+		}, {
+			complete: function(){
+				$parent.remove();
+			}
 		});
 
 		reorder_markers();
