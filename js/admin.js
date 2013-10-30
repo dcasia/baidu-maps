@@ -70,9 +70,9 @@
 		html += "<label> Latitude / Longitude </label>";
 		html += "<input type='text' name='" + prefix + 'lat' + '-' + marker_count + "' value='' size='30' >";
 		html += "<input type='text' name='" + prefix + 'lng' + '-' + marker_count + "' value='' size='30' >";
-		$html[] = "<br>";
-		$html[] = "<button class='button marker_row_location_grab'>Grab From Map</button>";
-		$html[] = "</div>";
+		html = "<br>";
+		html = "<button class='button marker_row_location_grab'>Grab From Map</button>";
+		html = "</div>";
 
 		html += "<div class='marker_row marker_row_default marker_row_color'>";
 		html += "<label> Background Color </label>";
