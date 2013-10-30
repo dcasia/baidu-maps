@@ -164,12 +164,5 @@
 #bmap-map-branding .bottom{
 	display: block;
 	height: 20px;
-}
-
-#bmap-map-branding .website{
-	float: left;
-}
-
-#bmap-map-branding .support{
-	float: right;
+	text-align: center;
 }

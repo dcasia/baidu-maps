@@ -305,7 +305,7 @@ class Baidu_Maps_Admin {
 
 		$html[] = "<p>" . __('Baidu maps plugin developed in Shanghai by', 'baidu-maps') . "</p>";
 		$html[] = "<a href='http://www.digitalcreative.asia'><img class='logo' src='{$this->plugin_url}icons/dc_asia_logo.png'></a>";
-		$html[] = "<div class='bottom'><a href='http://www.digitalcreative.asia' class='website'>www.digitalcreative.asia</a><a href='#' class='support'>support</a></div>";
+		$html[] = "<div class='bottom'><a href='http://www.digitalcreative.asia' class='website'>www.digitalcreative.asia</a></div>";
 
 		echo implode( "\n", $html );
 	}
