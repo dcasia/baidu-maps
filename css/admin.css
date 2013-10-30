@@ -128,3 +128,48 @@
 	width: 100%;
 	outline: none;
 }
+
+.caption{
+	font-size: 11px;
+	font-style: italic;
+	color: #666;
+}
+
+#bmap-map-branding{
+	background: #fff !important;
+	border: none !important;
+}
+
+#bmap-map-branding .handlediv, #bmap-map-branding .hndle {
+	display: none !important;
+}
+
+#bmap-map-branding .inside{
+	margin: 0;
+}
+
+#bmap-map-branding p{
+	margin: 0;
+}
+
+#bmap-map-branding .logo{
+	margin: 15px auto 20px auto;
+	display: block;
+}
+
+#bmap-map-branding a{
+	color: #e23d7e;
+}
+
+#bmap-map-branding .bottom{
+	display: block;
+	height: 20px;
+}
+
+#bmap-map-branding .website{
+	float: left;
+}
+
+#bmap-map-branding .support{
+	float: right;
+}

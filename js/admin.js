@@ -23,7 +23,6 @@
 
 		$('.color-picker-control').wpColorPicker();
 
-
 	});
 
 	function add_marker_image($el) {
@@ -144,8 +143,16 @@
 
 		var searchSettings = {
 			onSearchComplete: function (w) {
+
 				if (typeof(w.getPoi(0)) != 'undefined'){
-					map.centerAndZoom(w.getPoi(0).point, 12);
+					var zoom = $('.location-check-zoom').val();
+					if(zoom < 16 ) zoom = 16;
+					map.centerAndZoom(w.getPoi(0).point, zoom);
+
+					var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+					var marker_icon = new BMap.Marker(w.getPoi(0).point, {icon: myIcon});
+					$('.BMap_Marker').remove();
+					map.addOverlay(marker_icon);
 				}
 			}
 		}
@@ -197,6 +204,19 @@
 		var $grabFromMap = $('.marker_row_location_grab');
 
 		$locationCheckZoom.on('change', function () {
+			var zoom = $(this).val();
+			if (zoom > 0 && zoom < 20) {
+				map.zoomTo(parseInt(zoom));
+			}
+		});
+
+		$locationCheckZoom.keypress(function (e) {
+			if (e.keyCode == 13) {
+				$(this).trigger('enter');
+				return false;
+			}
+		});
+		$locationCheckZoom.on('enter', function (e) {
 			var zoom = $(this).val();
 			if (zoom > 0 && zoom < 20) {
 				map.zoomTo(parseInt(zoom));

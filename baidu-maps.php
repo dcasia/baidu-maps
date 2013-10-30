@@ -65,7 +65,7 @@ class Baidu_Maps {
 
 
 		// Initialize the admin interface
-		$admin = new Baidu_Maps_Admin();
+		$admin = new Baidu_Maps_Admin($this->plugin_url);
 
 		add_action( 'admin_notices', array( $this, 'display_admin_notices' ) );
 
