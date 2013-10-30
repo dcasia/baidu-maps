@@ -1,3 +1,7 @@
+.baidu-map-container{
+	max-width: 2000px;
+}
+
 .marker-overlay {
 	position: absolute;
 	background-color: #e93e6b;
