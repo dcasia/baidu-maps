@@ -12,11 +12,13 @@
 .marker-overlay .marker-name {
 	display: block;
 	font-size: 14px;
+	line-height: 24px;
 }
 
 .marker-overlay .marker-description {
 	display: block;
 	font-size: 12px;
+	line-height: 20px;
 }
 
 .marker-overlay:after {

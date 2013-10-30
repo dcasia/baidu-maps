@@ -63,7 +63,7 @@ Marker.prototype.initialize = function (map) {
 
 Marker.prototype.draw = function () {
 	var position = this._map.pointToOverlayPixel(this._center);
-	this._div.style.left = position.x - this._width / 2 + 10 + "px";
+	this._div.style.left = position.x - this._width / 2  - 3 + "px";
 	this._div.style.top = position.y - this._height + "px";
 
 	if (!this._drew) {
