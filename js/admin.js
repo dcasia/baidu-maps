@@ -90,6 +90,7 @@
 		html += "<span class='caption'>Check to always show marker details</span>";
 
 		html += "</div>";
+		html += "</div>";
 
 		var $marker = $(html);
 		$('.marker-container').append($marker);
@@ -120,10 +121,11 @@
 		}, {
 			complete: function(){
 				$parent.remove();
+				reorder_markers();
 			}
 		});
 
-		reorder_markers();
+
 	}
 
 	function reorder_markers() {
@@ -155,6 +157,13 @@
 					var marker_icon = new BMap.Marker(w.getPoi(0).point, {icon: myIcon});
 					$('.BMap_Marker').remove();
 					map.addOverlay(marker_icon);
+
+					var $locationCheckResults = $('.location-check-results');
+					var $locationCheckResults_lat = $locationCheckResults.find('.lat');
+					var $locationCheckResults_lng = $locationCheckResults.find('.lng');
+
+					$locationCheckResults_lat.html(w.getPoi(0).point.lat);
+					$locationCheckResults_lng.html(w.getPoi(0).point.lng);
 				}
 			}
 		}

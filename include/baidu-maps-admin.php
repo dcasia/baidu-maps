@@ -194,8 +194,10 @@ class Baidu_Maps_Admin {
 		$markers = get_post_meta( $post->ID, 'markers', true );
 
 		$html[] = "<div class='marker-container'>";
+
 		if ( is_array( $markers ) ) {
 			foreach ( $markers as $marker_count => $marker ) {
+				if(empty($marker)) continue;
 				$html[] = "<div class='markers'>";
 
 				$meta_name        = $marker[$prefix . 'name' . '-' . $marker_count];
