@@ -198,6 +198,11 @@
 
 			$locationCheckResults_lat.html(c.point.lat);
 			$locationCheckResults_lng.html(c.point.lng);
+
+			var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+			var marker_icon = new BMap.Marker(c.point, {icon: myIcon});
+			$('.BMap_Marker').remove();
+			map.addOverlay(marker_icon);
 		});
 	}
 
