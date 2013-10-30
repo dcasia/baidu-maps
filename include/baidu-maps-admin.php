@@ -68,7 +68,7 @@ class Baidu_Maps_Admin {
 	public function create_meta_box() {
 		add_meta_box( 'bmap-map-details', __( 'Map Settings', 'baidu-maps' ), array( $this, 'render_meta_box_map_details' ), 'bmap', 'side', 'high' );
 		add_meta_box( 'bmap-map-markers', __( 'Map Markers', 'baidu-maps' ), array( $this, 'render_meta_box_map_markers' ), 'bmap', 'normal', 'low' );
-		add_meta_box( 'bmap-map-location-check', __( 'Location Finder (Search in chinese only) '), 'baidu-maps' ), array( $this, 'render_meta_box_map_location_check' ), 'bmap', 'normal', 'high' );
+		add_meta_box( 'bmap-map-location-check', __( 'Location Finder (Search in chinese only) ', 'baidu-maps' ), array( $this, 'render_meta_box_map_location_check' ), 'bmap', 'normal', 'high' );
 		add_meta_box( 'bmap-map-branding', 'Digital Creative', array( $this, 'render_meta_box_branding' ), 'bmap', 'side', 'high' );
 
 	}
