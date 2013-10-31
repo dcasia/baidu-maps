@@ -308,6 +308,7 @@ class Baidu_Maps_Admin {
 		$html[] = "<p class='location-check-currc'> " . __( 'Current Coordinates (lat, lng)  :', 'baidu-maps' ) . "  <span class='lat'>0.0</span>, <span class='lng'>0.0</span> </p>";
 		$html[] = "</div>";
 
+
 		echo implode( "\n", $html );
 	}
 
