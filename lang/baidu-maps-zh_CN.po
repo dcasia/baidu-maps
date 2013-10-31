@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Baidu Maps Plugin v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-10-24 06:21:10+0000\n"
+"PO-Revision-Date: 2013-10-31 07:02:42+0000\n"
 "Last-Translator: uditvirwani\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,170 +30,165 @@ msgstr "您没有输入您的百度开发人员 API 密钥"
 msgid "Click Here to enter it"
 msgstr "点击此处进行输入"
 
-#: include/baidu-maps-admin.php:30
-#: include/baidu-maps-admin.php:42
+#: include/baidu-maps-admin.php:31
+#: include/baidu-maps-admin.php:43
 #: include/baidu-maps-settings.php:41
 #@ baidu-maps
 msgid "Baidu Maps"
 msgstr "百度地图"
 
-#: include/baidu-maps-admin.php:31
+#: include/baidu-maps-admin.php:32
 #@ baidu-maps
 msgid "Baidu Map"
 msgstr "百度地图"
 
-#: include/baidu-maps-admin.php:32
 #: include/baidu-maps-admin.php:33
+#: include/baidu-maps-admin.php:34
 #@ baidu-maps
 msgid "Add New Map"
 msgstr "添加新地图"
 
-#: include/baidu-maps-admin.php:34
+#: include/baidu-maps-admin.php:35
 #@ baidu-maps
 msgid "Edit Map"
 msgstr "编辑地图"
 
-#: include/baidu-maps-admin.php:35
+#: include/baidu-maps-admin.php:36
 #@ baidu-maps
 msgid "New Map"
 msgstr "新地图"
 
-#: include/baidu-maps-admin.php:36
+#: include/baidu-maps-admin.php:37
 #@ baidu-maps
 msgid "All Maps"
 msgstr "所有地图"
 
-#: include/baidu-maps-admin.php:37
+#: include/baidu-maps-admin.php:38
 #@ baidu-maps
 msgid "View Map"
 msgstr "查看地图"
 
-#: include/baidu-maps-admin.php:38
+#: include/baidu-maps-admin.php:39
 #@ baidu-maps
 msgid "Search Maps"
 msgstr "搜索地图"
 
-#: include/baidu-maps-admin.php:39
+#: include/baidu-maps-admin.php:40
 #@ baidu-maps
 msgid "No Maps found"
 msgstr "未找到地图"
 
-#: include/baidu-maps-admin.php:40
+#: include/baidu-maps-admin.php:41
 #@ baidu-maps
 msgid "No Maps found in Trash"
 msgstr "未在垃圾箱中找到地图"
 
-#: include/baidu-maps-admin.php:85
+#: include/baidu-maps-admin.php:87
 #@ baidu-maps
 msgid "Map Height"
 msgstr "地图高度"
 
-#: include/baidu-maps-admin.php:86
+#: include/baidu-maps-admin.php:88
 #@ baidu-maps
 msgid "Enter the height in px"
 msgstr "以像素为单位输入高度"
 
-#: include/baidu-maps-admin.php:91
+#: include/baidu-maps-admin.php:93
 #@ baidu-maps
 msgid "Map Width"
 msgstr "地图宽度"
 
-#: include/baidu-maps-admin.php:92
+#: include/baidu-maps-admin.php:94
 #@ baidu-maps
 msgid "Enter the width in px"
 msgstr "以像素为单位输入宽度"
 
-#: include/baidu-maps-admin.php:97
+#: include/baidu-maps-admin.php:99
 #@ baidu-maps
 msgid "Show full width"
 msgstr "显示完整宽度"
 
-#: include/baidu-maps-admin.php:98
+#: include/baidu-maps-admin.php:100
 #@ baidu-maps
 msgid "Select to set the map to full width"
 msgstr "选择将地图设置为完整宽度"
 
-#: include/baidu-maps-admin.php:103
+#: include/baidu-maps-admin.php:105
 #@ baidu-maps
 msgid "Zoom"
 msgstr "放大"
 
-#: include/baidu-maps-admin.php:104
+#: include/baidu-maps-admin.php:106
 #@ baidu-maps
 msgid "Enter the zoom of the map between (1 - 20)"
 msgstr "输入（1-20）间的地图放大值"
 
-#: include/baidu-maps-admin.php:110
+#: include/baidu-maps-admin.php:112
 #@ baidu-maps
 msgid "Enter the map centering latitude"
 msgstr "输入地图中心纬度"
 
-#: include/baidu-maps-admin.php:116
+#: include/baidu-maps-admin.php:118
 #@ baidu-maps
 msgid "Enter the map centering longitude"
 msgstr "输入地图中心经度"
 
-#: include/baidu-maps-admin.php:136
+#: include/baidu-maps-admin.php:138
 #@ baidu-maps
 msgid "Enter your map details here ..."
 msgstr "在此输入您地图的具体信息……"
 
-#: include/baidu-maps-admin.php:211
-#@ baidu-maps
-msgid "Choose Image"
-msgstr "选择图片"
-
-#: include/baidu-maps-admin.php:213
+#: include/baidu-maps-admin.php:217
 #@ baidu-maps
 msgid "Delete Marker"
 msgstr "删除标志"
 
-#: include/baidu-maps-admin.php:222
+#: include/baidu-maps-admin.php:226
 #@ baidu-maps
 msgid "Marker Description"
 msgstr "标记说明"
 
-#: include/baidu-maps-admin.php:227
+#: include/baidu-maps-admin.php:231
 #@ baidu-maps
 msgid "Latitude / Longitude"
 msgstr "纬度/经度"
 
-#: include/baidu-maps-admin.php:235
+#: include/baidu-maps-admin.php:239
 #@ baidu-maps
 msgid "Background Color"
 msgstr "背景颜色"
 
-#: include/baidu-maps-admin.php:240
+#: include/baidu-maps-admin.php:244
 #@ baidu-maps
 msgid "Font Color"
 msgstr "字体颜色"
 
-#: include/baidu-maps-admin.php:245
+#: include/baidu-maps-admin.php:249
 #@ baidu-maps
 msgid "Show Marker Details"
 msgstr "显示标记详细信息"
 
-#: include/baidu-maps-admin.php:247
+#: include/baidu-maps-admin.php:251
 #@ baidu-maps
 msgid "Check to always show marker details"
 msgstr "选择始终显示标记具体信息"
 
-#: include/baidu-maps-admin.php:361
+#: include/baidu-maps-admin.php:385
 #@ baidu-maps
 msgid "Makrers"
 msgstr "标记"
 
-#: include/baidu-maps-admin.php:362
+#: include/baidu-maps-admin.php:386
 #@ baidu-maps
 msgid "Shortcode"
 msgstr "短代码"
 
-#: include/baidu-maps-admin.php:363
+#: include/baidu-maps-admin.php:387
 #@ baidu-maps
 msgid "Geolocation"
 msgstr "地理位置"
 
-#: include/baidu-maps-admin.php:388
+#: include/baidu-maps-admin.php:412
 #@ baidu-maps
 msgid "No Location Defined"
 msgstr "没有定义的位置"
@@ -213,55 +208,50 @@ msgstr "百度开发人员 API 密钥"
 msgid "Enter your settings below:"
 msgstr "在下方输入您的设置："
 
-#: include/baidu-maps-admin.php:109
+#: include/baidu-maps-admin.php:111
 #@ baidu-maps
 msgid "Map (Latitude)"
 msgstr "地图（纬度）"
 
-#: include/baidu-maps-admin.php:115
+#: include/baidu-maps-admin.php:117
 #@ baidu-maps
 msgid "Map (Longitude)"
 msgstr "地图（经度）"
 
-#: include/baidu-maps-admin.php:189
+#: include/baidu-maps-admin.php:191
 #@ baidu-maps
 msgid "Add Marker"
 msgstr "添加标志"
 
-#: include/baidu-maps-admin.php:218
+#: include/baidu-maps-admin.php:222
 #@ baidu-maps
 msgid "Marker Name"
-msgstr ""
+msgstr "标记名称"
 
-#: include/baidu-maps-admin.php:276
+#: include/baidu-maps-admin.php:287
 #@ baidu-maps
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
-#: include/baidu-maps-admin.php:279
+#: include/baidu-maps-admin.php:290
 #@ baidu-maps
 msgid "Select the zoom level"
-msgstr ""
+msgstr "选择放大程度"
 
-#: include/baidu-maps-admin.php:286
+#: include/baidu-maps-admin.php:297
 #@ baidu-maps
 msgid "Latitude :"
 msgstr "纬度 :"
 
-#: include/baidu-maps-admin.php:287
+#: include/baidu-maps-admin.php:298
 #@ baidu-maps
 msgid "Longitude :"
 msgstr "经度 :"
 
-#: include/baidu-maps-admin.php:294
+#: include/baidu-maps-admin.php:308
 #@ baidu-maps
 msgid "Current Coordinates (lat, lng)  :"
-msgstr ""
-
-#: include/baidu-maps-admin.php:274
-#@ baidu-maps
-msgid "Enter the Search query"
-msgstr ""
+msgstr "我的位置"
 
 #: include/baidu-maps-settings.php:24
 #: include/baidu-maps-settings.php:25
@@ -269,8 +259,43 @@ msgstr ""
 msgid "Baidu Maps Settings"
 msgstr "百度地图设置"
 
-#: include/baidu-maps-admin.php:271
+#: include/baidu-maps-admin.php:69
 #@ baidu-maps
-msgid "Find a location"
-msgstr ""
+msgid "Map Settings"
+msgstr "地图设置"
+
+#: include/baidu-maps-admin.php:70
+#@ baidu-maps
+msgid "Map Markers"
+msgstr "地图标记"
+
+#: include/baidu-maps-admin.php:71
+#@ baidu-maps
+msgid "Location Finder (Search in chinese only) "
+msgstr "地址获取 (中文搜索)"
+
+#: include/baidu-maps-admin.php:215
+#@ baidu-maps
+msgid "Upload Marker"
+msgstr "上传标记"
+
+#: include/baidu-maps-admin.php:285
+#@ baidu-maps
+msgid "Search for location"
+msgstr "搜索地址"
+
+#: include/baidu-maps-admin.php:300
+#@ baidu-maps
+msgid "Add as marker"
+msgstr "添加标记"
+
+#: include/baidu-maps-admin.php:301
+#@ baidu-maps
+msgid "Set as map center"
+msgstr "设置为地图中心"
+
+#: include/baidu-maps-admin.php:317
+#@ baidu-maps
+msgid "Baidu maps plugin developed in Shanghai by"
+msgstr "上海区域百度地图插件开发由 Digital Creative"
 
