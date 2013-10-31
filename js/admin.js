@@ -141,6 +141,27 @@
 		});
 	}
 
+	function centerHere(point, zoom){
+
+		if(zoom < 16 ) zoom = 16;
+		map.centerAndZoom(point, zoom);
+		$('.location-check-zoom').val(zoom);
+
+		var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+		var marker_icon = new BMap.Marker(point, {icon: myIcon});
+
+		$('.BMap_Marker').remove();
+		map.addOverlay(marker_icon);
+
+		var $locationCheckResults = $('.location-check-results');
+		var $locationCheckResults_lat = $locationCheckResults.find('.lat');
+		var $locationCheckResults_lng = $locationCheckResults.find('.lng');
+
+		$locationCheckResults_lat.html(point.lat);
+		$locationCheckResults_lng.html(point.lng);
+
+	}
+
 	function mapSearch() {
 		var $locationCheckUrl = $('.location-check-url');
 		var $locationCheckBtn = $('.location-check-button');
@@ -150,20 +171,22 @@
 
 				if (typeof(w.getPoi(0)) != 'undefined'){
 					var zoom = $('.location-check-zoom').val();
-					if(zoom < 16 ) zoom = 16;
-					map.centerAndZoom(w.getPoi(0).point, zoom);
-
-					var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
-					var marker_icon = new BMap.Marker(w.getPoi(0).point, {icon: myIcon});
-					$('.BMap_Marker').remove();
-					map.addOverlay(marker_icon);
-
-					var $locationCheckResults = $('.location-check-results');
-					var $locationCheckResults_lat = $locationCheckResults.find('.lat');
-					var $locationCheckResults_lng = $locationCheckResults.find('.lng');
-
-					$locationCheckResults_lat.html(w.getPoi(0).point.lat);
-					$locationCheckResults_lng.html(w.getPoi(0).point.lng);
+					centerHere(w.getPoi(0).point, zoom);
+//					if(zoom < 16 ) zoom = 16;
+//					map.centerAndZoom(w.getPoi(0).point, zoom);
+//					$('.location-check-zoom').val(zoom);
+//
+//					var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+//					var marker_icon = new BMap.Marker(w.getPoi(0).point, {icon: myIcon});
+//					$('.BMap_Marker').remove();
+//					map.addOverlay(marker_icon);
+//
+//					var $locationCheckResults = $('.location-check-results');
+//					var $locationCheckResults_lat = $locationCheckResults.find('.lat');
+//					var $locationCheckResults_lng = $locationCheckResults.find('.lng');
+//
+//					$locationCheckResults_lat.html(w.getPoi(0).point.lat);
+//					$locationCheckResults_lng.html(w.getPoi(0).point.lng);
 				}
 			}
 		}

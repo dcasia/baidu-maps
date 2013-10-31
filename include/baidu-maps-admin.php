@@ -2,7 +2,7 @@
 
 class Baidu_Maps_Admin {
 
-	public function __construct($plugin_url) {
+	public function __construct( $plugin_url ) {
 
 		// Register Plugins Settings
 		$settings_page = new Baidu_Maps_Settings();
@@ -90,7 +90,7 @@ class Baidu_Maps_Admin {
 				'type'  => 'text'
 			),
 			array(
-				'label' => __( 'Map Width', 'baidu-maps' ). ' (px)',
+				'label' => __( 'Map Width', 'baidu-maps' ) . ' (px)',
 				'desc'  => __( 'Enter the width in px', 'baidu-maps' ),
 				'id'    => $prefix . 'width',
 				'type'  => 'text'
@@ -197,7 +197,7 @@ class Baidu_Maps_Admin {
 
 		if ( is_array( $markers ) ) {
 			foreach ( $markers as $marker_count => $marker ) {
-				if(empty($marker)) continue;
+				if ( empty( $marker ) ) continue;
 				$html[] = "<div class='markers'>";
 
 				$meta_name        = $marker[$prefix . 'name' . '-' . $marker_count];
@@ -261,12 +261,20 @@ class Baidu_Maps_Admin {
 	}
 
 	public function render_meta_box_map_location_check() {
+		global $post;
+
 		$baidu_maps_api = new Baidu_Maps_API();
-		$id             = 'admin-map-element';
-		$map            = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
-		$default_lat    = '39.915';
-		$default_lng    = '116.404';
-		$default_zoom   = '13';
+
+		$id  = 'admin-map-element';
+		$map = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
+
+		$default_lat = get_post_meta( $post->ID, 'baidu_maps_meta_center_lat', true );
+		if ( empty( $default_lat ) ) $default_lat = '39.915';
+		$default_lng = get_post_meta( $post->ID, 'baidu_maps_meta_center_lng', true );
+		if ( empty( $default_lng ) ) $default_lng = '116.404';
+		$default_zoom = get_post_meta( $post->ID, 'baidu_maps_meta_zoom', true );
+		if ( empty( $default_zoom ) ) $default_zoom = '13';
+
 
 		$baidu_maps_api->createMap( $id, $default_zoom, $default_lat, $default_lng );
 
@@ -305,7 +313,7 @@ class Baidu_Maps_Admin {
 
 	public function render_meta_box_branding( $post_id ) {
 
-		$html[] = "<p>" . __('Baidu maps plugin developed in Shanghai by', 'baidu-maps') . "</p>";
+		$html[] = "<p>" . __( 'Baidu maps plugin developed in Shanghai by', 'baidu-maps' ) . "</p>";
 		$html[] = "<a href='http://www.digitalcreative.asia'><img class='logo' src='{$this->plugin_url}icons/dc_asia_logo.png'></a>";
 		$html[] = "<div class='bottom'><a href='http://www.digitalcreative.asia' class='website'>www.digitalcreative.asia</a></div>";
 
