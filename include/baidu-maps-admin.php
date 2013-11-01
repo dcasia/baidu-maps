@@ -268,6 +268,10 @@ class Baidu_Maps_Admin {
 		$id  = 'admin-map-element';
 		$map = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
 
+//		$default_lat  = '39.915';
+//		$default_lng  = '116.404';
+//		$default_zoom = '13';
+
 		$default_lat = get_post_meta( $post->ID, 'baidu_maps_meta_center_lat', true );
 		if ( empty( $default_lat ) ) $default_lat = '39.915';
 		$default_lng = get_post_meta( $post->ID, 'baidu_maps_meta_center_lng', true );

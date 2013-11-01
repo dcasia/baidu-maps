@@ -116,10 +116,10 @@
 		var $parent = jQuery($el).parent().parent();
 		$parent.css('position', 'relative');
 		$parent.animate({
-			left: '100px',
-			opacity : 0
+			left   : '100px',
+			opacity: 0
 		}, {
-			complete: function(){
+			complete: function () {
 				$parent.remove();
 				reorder_markers();
 			}
@@ -133,7 +133,7 @@
 		$('.markers').each(function (index) {
 			$(this).find('input').each(function () {
 				var name = $(this).attr('name');
-				if(typeof(name) != 'undefined'){
+				if (typeof(name) != 'undefined') {
 					var name_split = name.split('-');
 					$(this).attr('name', name_split[0] + '-' + index);
 				}
@@ -141,9 +141,9 @@
 		});
 	}
 
-	function centerHere(point, zoom){
+	function centerHere(point, zoom) {
 
-		if(zoom < 16 ) zoom = 16;
+		if (zoom < 16) zoom = 16;
 		map.centerAndZoom(point, zoom);
 		$('.location-check-zoom').val(zoom);
 
@@ -169,7 +169,7 @@
 		var searchSettings = {
 			onSearchComplete: function (w) {
 
-				if (typeof(w.getPoi(0)) != 'undefined'){
+				if (typeof(w.getPoi(0)) != 'undefined') {
 					var zoom = $('.location-check-zoom').val();
 					centerHere(w.getPoi(0).point, zoom);
 				}
@@ -208,18 +208,43 @@
 			$('.location-check-currc').find('.lng').html(c.point.lng);
 		});
 
+		map.addEventListener("dblclick", function (c) {
+			return;
+		});
+
+		var delay = 300;
+		clicks = 0;
+		timer = null;
+
 		map.addEventListener("click", function (c) {
-			var $locationCheckResults = $('.location-check-results');
-			var $locationCheckResults_lat = $locationCheckResults.find('.lat');
-			var $locationCheckResults_lng = $locationCheckResults.find('.lng');
 
-			$locationCheckResults_lat.html(c.point.lat);
-			$locationCheckResults_lng.html(c.point.lng);
+			clicks++;
 
-			var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
-			var marker_icon = new BMap.Marker(c.point, {icon: myIcon});
-			$('.BMap_Marker').remove();
-			map.addOverlay(marker_icon);
+			if (clicks == 1) {
+
+				timer = setTimeout(function () {
+					var $locationCheckResults = $('.location-check-results');
+					var $locationCheckResults_lat = $locationCheckResults.find('.lat');
+					var $locationCheckResults_lng = $locationCheckResults.find('.lng');
+
+					$locationCheckResults_lat.html(c.point.lat);
+					$locationCheckResults_lng.html(c.point.lng);
+
+					var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+					var marker_icon = new BMap.Marker(c.point, {icon: myIcon});
+					$('.BMap_Marker').remove();
+					map.addOverlay(marker_icon);
+
+					clicks = 0;
+				}, delay);
+
+			} else {
+				map.zoomIn();
+
+				clearTimeout(timer);
+				clicks = 0;
+			}
+
 		});
 	}
 

@@ -29,6 +29,7 @@ class Baidu_Maps_API {
 						enableMapClick: false
 					});
 					map.centerAndZoom(new BMap.Point(<?php echo $lng; ?>, <?php echo $lat; ?>), <?php echo $zoom; ?>);
+					map.addControl(new BMap.NavigationControl());
 
 				})
 			})(window.jQuery)
@@ -73,6 +74,7 @@ class Baidu_Maps_API {
 						enableMapClick: false
 					});
 					map.centerAndZoom(new BMap.Point(<?php echo $center_lng; ?>, <?php echo $center_lat; ?>), <?php echo $zoom; ?>);
+					map.addControl(new BMap.NavigationControl());
 
 					<?php foreach($markers as $marker_count => $marker) : ?>
 
