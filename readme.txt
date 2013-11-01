@@ -7,15 +7,16 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Baidu Maps is a Wordpress plugin to easily integrate Baidu maps in to your site.
-Easily add multiple locations with custom markers and data.
+Custom Baidu Maps is a Wordpress plugin to easily create and integrate one or more Baidu maps with custom 
+locations in to your site.
 
 == Description ==
 
-This plugin allows to integrate one or more Baidu Maps in any page using shortcodes.
+Easily create Custom Baidu Maps to add to any Wordpress ost or page. You can create one or multiple maps 
+with our easy to use settings panel, then insert the map using a shortcode.
 
-Along with that, this plugin is able customize the map to contain several custom markers
-with options to add/change  location coordinates, foreground/background colors, and even the marker icons!
+With Custom Baidu Maps you can customize each map with multiple locations with options to add/change location 
+coordinates, add a description, choose background and font colors and upload your own custom marker image.
 
 
 Basic Usage with shortcodes :
