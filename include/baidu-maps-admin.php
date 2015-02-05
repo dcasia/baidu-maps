@@ -55,7 +55,7 @@ class Baidu_Maps_Admin {
 			'has_archive'        => false,
 			'hierarchical'       => false,
 			'menu_position'      => 100,
-			'menu_icon'          => $this->plugin_url . 'icons/menu-icon.png',
+			'menu_icon'          => $this->plugin_url . 'assets/icons/menu-icon.png',
 			'supports'           => array( 'title' )
 		);
 
@@ -319,7 +319,7 @@ class Baidu_Maps_Admin {
 	public function render_meta_box_branding( $post_id ) {
 
 		$html[] = "<p>" . __( 'Baidu maps plugin developed in Shanghai by', 'baidu-maps' ) . "</p>";
-		$html[] = "<a href='http://www.digitalcreative.asia'><img class='logo' src='{$this->plugin_url}icons/dc_asia_logo.png'></a>";
+		$html[] = "<a href='http://www.digitalcreative.asia'><img class='logo' src='{$this->plugin_url}assets/icons/dc_asia_logo.png'></a>";
 		$html[] = "<div class='bottom'><a href='http://www.digitalcreative.asia' class='website'>www.digitalcreative.asia</a></div>";
 
 		echo implode( "\n", $html );

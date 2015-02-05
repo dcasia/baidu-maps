@@ -51,9 +51,9 @@
 		html += "<div class='markers'>";
 		html += "<div class='marker-controls'>";
 		html += "<a href='#'class='button choose_image'> Choose Image </a>";
-		html += "<input class='icon-input' style='display: none;' type='text' name='" + prefix + 'icon' + '-' + marker_count + "' value='" + pluginUrl + 'icons/marker.png' + "' >";
+		html += "<input class='icon-input' style='display: none;' type='text' name='" + prefix + 'icon' + '-' + marker_count + "' value='" + pluginUrl + 'assets/icons/marker.png' + "' >";
 		html += "<a href='#'class='button delete_marker'> Delete Marker </a>";
-		html += "<div class='img_wrap'> <img src='" + pluginUrl + 'icons/marker.png' + "' width='32' height='32' ></div>";
+		html += "<div class='img_wrap'> <img src='" + pluginUrl + 'assets/icons/marker.png' + "' width='32' height='32' ></div>";
 		html += "</div>";
 
 		html += "<div class='marker_row marker_row_default marker_row_name'>";
@@ -147,7 +147,7 @@
 		map.centerAndZoom(point, zoom);
 		$('.location-check-zoom').val(zoom);
 
-		var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+		var myIcon = new BMap.Icon(pluginUrl + 'assets/icons/target.png', new BMap.Size(32, 32));
 		var marker_icon = new BMap.Marker(point, {icon: myIcon});
 
 		$('.BMap_Marker').remove();
@@ -230,7 +230,7 @@
 					$locationCheckResults_lat.html(c.point.lat);
 					$locationCheckResults_lng.html(c.point.lng);
 
-					var myIcon = new BMap.Icon(pluginUrl + 'icons/target.png', new BMap.Size(32, 32));
+					var myIcon = new BMap.Icon(pluginUrl + 'assets/icons/target.png', new BMap.Size(32, 32));
 					var marker_icon = new BMap.Marker(c.point, {icon: myIcon});
 					$('.BMap_Marker').remove();
 					map.addOverlay(marker_icon);
