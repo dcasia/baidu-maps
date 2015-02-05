@@ -1,0 +1,33 @@
+.baidu-map-container
+  max-width: 2000px
+  z-index: 10
+
+.marker-overlay
+  position: absolute
+  background-color: #e93e6b
+  size: 186px 44px
+  padding: 3px 10px 3px 10px
+  border-radius: 3px
+  border-color: #e93e6b
+  cursor: pointer
+
+  .marker-name
+    display: block
+    font-size: 14px
+    line-height: 20px
+
+  .marker-description
+    display: block
+    font-size: 12px
+    line-height: 20px
+
+
+  &:after
+    absolute: top 100% left 50%
+    border: solid transparent
+    content: ""
+    size: 0 0
+    pointer-events: none
+    border-top-color: inherit
+    border-width: 14px 8px
+    margin-left: -15px

@@ -1,0 +1,36 @@
+{
+  "name": "custom-baidu-maps",
+  "version": "1.1.0",
+  "description": "A Wordpress plugin to integrate Baidu maps and extend the functionality with custom markers.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcasia/baidu-maps"
+  },
+  "keywords": [
+    "Baidu",
+    "Maps",
+    "WordPress",
+    "Plugin"
+  ],
+  "author": "Digital Creative",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcasia/baidu-maps/issues"
+  },
+  "homepage": "https://github.com/dcasia/baidu-maps",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-jshint": "*",
+    "gulp-minify-css": "*",
+    "gulp-plumber": "*",
+    "gulp-rename": "*",
+    "gulp-stylus": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "jshint-stylish": "*",
+    "nib": "~1.0.4",
+    "rupture": "~0.6.1"
+  }
+}

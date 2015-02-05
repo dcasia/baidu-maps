@@ -100,8 +100,8 @@ class Baidu_Maps {
 
 
 		// Enqueue Plugin's Frontend Styles
-		wp_register_style( 'baidu-maps-style-admin', $this->plugin_url . 'css/map.css' );
-		wp_enqueue_style( 'baidu-maps-style-admin' );
+		wp_register_style( 'baidu-maps-style-frontend', $this->plugin_url . 'css/frontend.css' );
+		wp_enqueue_style( 'baidu-maps-style-frontend' );
 
 		// Enqueue Plugin's Frontend Script
 		wp_register_script( 'baidu-maps-script-map', $this->plugin_url . 'js/map.js', array( 'jquery' ), false, true );
