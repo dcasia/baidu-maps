@@ -1,0 +1,130 @@
+/**********************
+ *   Marker Styles
+ **********************/
+
+.delete_marker
+  font-size: 11px
+  line-height: 14px
+  absolute: top 5px right 5px
+  size: 16px 16px
+  border: 1px solid #999
+  border-radius: 50%
+  color: #999
+  text-align: center
+  user-select: none
+  transition: all 0.3s
+
+  &:hover
+    cursor: pointer
+    border-color: #333
+    color: #333
+
+.marker_row
+  padding: 5px 0px
+
+
+.marker_row_default
+  label
+    display: inline-block
+    width: 120px
+
+.marker_row_location
+  label
+    display: inline-block
+    width: 120px
+
+  input
+    width: 100px
+
+
+.marker_row_location_grab
+  margin-left: 125px !important
+  width: 205px
+
+
+.marker_row_color label
+  margin-top: -15px
+
+
+.marker_row_is_open input
+  width: 20px
+
+
+.marker_row_is_open .caption
+  font-size: 11px
+  font-style: italic
+  color: #666
+
+
+// New Styles ------ v1.1 ------
+
+#bmap-map-markers
+  .inside
+    padding: 0
+    margin: 0
+
+.markers-panel-wrap
+  cf()
+  display: block
+  background-color: #f5f5f5
+  padding: 10px
+
+
+.markers-container
+  .marker
+    padding: 10px 10px 10px 30px
+    position: relative
+    cf()
+
+    &:nth-child(2n)
+      background-color: #f9f9f9 !important
+
+    .marker-tracker
+      absolute: top left bottom
+      width: 30px
+      background-color: #f5f5f5
+      text-align: center
+      padding: 48px 0px
+      cursor: move
+      user-select: none
+
+    .marker-details
+      col(2/8, gutter: 0)
+      // border-right: 1px solid #f5f5f5
+      padding: 0 30px;
+
+      .marker_row_name
+        input
+          padding: 8px 12px;
+          width: 100%
+
+      .marker_row_location
+        cf()
+        input
+          col(1/2)
+          padding: 6px 12px;
+
+    .marker-type
+      col(0.5/8, gutter: 0)
+      // border-right: 1px solid #f5f5f5
+
+      ul
+        list-style: none
+        padding: 0
+        cf()
+
+        li
+          col(1/2, cycle: 2)
+          text-align: center
+
+    .marker-setup
+      col(4/8)
+      height: 94px
+      position: relative
+
+      .type-placeholder
+        font-size: 22px
+        color #ccc
+        align(both)
+        user-select: none
+        pointer-events: none

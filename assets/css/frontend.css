@@ -8,8 +8,10 @@
 .marker-overlay {
   position: absolute;
   background-color: #e93e6b;
-  size: 186px 44px;
+  width: 186px;
+  height: 44px;
   padding: 3px 10px 3px 10px;
+  -webkit-border-radius: 3px;
   border-radius: 3px;
   border-color: #e93e6b;
   cursor: pointer;
@@ -25,10 +27,13 @@
   line-height: 20px;
 }
 .marker-overlay:after {
-  absolute: top 100% left 50%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
   border: solid transparent;
   content: "";
-  size: 0 0;
+  width: 0;
+  height: 0;
   pointer-events: none;
   border-top-color: inherit;
   border-width: 14px 8px;

@@ -124,6 +124,9 @@ class Baidu_Maps {
 			wp_register_script( 'baidu-maps-script-admin', $this->plugin_url . 'assets/js/admin.js', array( 'jquery', 'wp-color-picker' ), false, true );
 			wp_enqueue_script( 'baidu-maps-script-admin' );
 
+			wp_register_script( 'baidu-maps-script-main', $this->plugin_url . 'assets/js/scripts.js', array( 'jquery' ), false, true );
+			wp_enqueue_script( 'baidu-maps-script-main' );
+
 			wp_localize_script( 'baidu-maps-script-admin', 'pluginUrl', $this->plugin_url );
 			wp_localize_script( 'baidu-maps-script-admin', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 

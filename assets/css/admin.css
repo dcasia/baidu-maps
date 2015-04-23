@@ -1,3 +1,9 @@
+/****************************************
+ *   Import the frontend map styles
+ ****************************************/
+/****************************
+ *   Import commmon styles
+ ****************************/
 #bmap-map-details input {
   min-width: 0;
 }
@@ -17,40 +23,52 @@
   color: #666;
   font-style: italic;
 }
-.markers {
-  margin-bottom: 50px;
+.button-full-width {
+  width: 100%;
+  outline: none;
 }
-.marker-controls {
-  display: inline-block;
-  width: 150px;
-  float: left;
+.caption {
+  font-size: 11px;
+  font-style: italic;
+  color: #666;
 }
-.marker-controls .img_wrap {
-  display: inline-block;
-  float: right;
-  margin: -15px 7px;
-  width: 32px;
-  height: 32px;
+/****************************
+ *   Import markers style
+ ****************************/
+.delete_marker {
+  font-size: 11px;
+  line-height: 14px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: #999;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
 }
-.marker-controls .img_wrap img {
-  width: auto;
-  height: auto;
-  max-width: 32px;
-  max-height: 32px;
-}
-.marker-controls .button {
-  width: 100px;
-  margin: 5px 0px;
+.delete_marker:hover {
+  cursor: pointer;
+  border-color: #333;
+  color: #333;
 }
 .marker_row {
-  padding: 5px 0px 5px 170px;
+  padding: 5px 0px;
 }
 .marker_row_default label {
   display: inline-block;
   width: 120px;
-}
-.marker_row_default input {
-  width: 205px;
 }
 .marker_row_location label {
   display: inline-block;
@@ -74,37 +92,242 @@
   font-style: italic;
   color: #666;
 }
+#bmap-map-markers .inside {
+  padding: 0;
+  margin: 0;
+}
+.markers-panel-wrap {
+  *zoom: 1;
+  display: block;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+.markers-panel-wrap:before,
+.markers-panel-wrap:after {
+  content: '';
+  display: table;
+}
+.markers-panel-wrap:after {
+  clear: both;
+}
+.markers-container .marker {
+  padding: 10px 10px 10px 30px;
+  position: relative;
+  *zoom: 1;
+}
+.markers-container .marker:before,
+.markers-container .marker:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker:after {
+  clear: both;
+}
+.markers-container .marker:nth-child(2n) {
+  background-color: #f9f9f9 !important;
+}
+.markers-container .marker .marker-tracker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 48px 0px;
+  cursor: move;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.markers-container .marker .marker-details {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 25%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 0 30px;
+}
+.markers-container .marker .marker-details:before,
+.markers-container .marker .marker-details:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-details:after {
+  clear: both;
+}
+.markers-container .marker .marker-details:last-child {
+  margin-right: 0%;
+}
+.markers-container .marker .marker-details .marker_row_name input {
+  padding: 8px 12px;
+  width: 100%;
+}
+.markers-container .marker .marker-details .marker_row_location {
+  *zoom: 1;
+}
+.markers-container .marker .marker-details .marker_row_location:before,
+.markers-container .marker .marker-details .marker_row_location:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-details .marker_row_location:after {
+  clear: both;
+}
+.markers-container .marker .marker-details .marker_row_location input {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+  padding: 6px 12px;
+}
+.markers-container .marker .marker-details .marker_row_location input:before,
+.markers-container .marker .marker-details .marker_row_location input:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-details .marker_row_location input:after {
+  clear: both;
+}
+.markers-container .marker .marker-details .marker_row_location input:last-child {
+  margin-right: 0%;
+}
+.markers-container .marker .marker-type {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 6.25%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.markers-container .marker .marker-type:before,
+.markers-container .marker .marker-type:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-type:after {
+  clear: both;
+}
+.markers-container .marker .marker-type:last-child {
+  margin-right: 0%;
+}
+.markers-container .marker .marker-type ul {
+  list-style: none;
+  padding: 0;
+  *zoom: 1;
+}
+.markers-container .marker .marker-type ul:before,
+.markers-container .marker .marker-type ul:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-type ul:after {
+  clear: both;
+}
+.markers-container .marker .marker-type ul li {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+  text-align: center;
+}
+.markers-container .marker .marker-type ul li:before,
+.markers-container .marker .marker-type ul li:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-type ul li:after {
+  clear: both;
+}
+.markers-container .marker .marker-type ul li:nth-child(2n) {
+  margin-right: 0%;
+  float: right;
+}
+.markers-container .marker .marker-type ul li:nth-child(2n+1) {
+  clear: both;
+}
+.markers-container .marker .marker-setup {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+  height: 94px;
+  position: relative;
+}
+.markers-container .marker .marker-setup:before,
+.markers-container .marker .marker-setup:after {
+  content: '';
+  display: table;
+}
+.markers-container .marker .marker-setup:after {
+  clear: both;
+}
+.markers-container .marker .marker-setup:last-child {
+  margin-right: 0%;
+}
+.markers-container .marker .marker-setup .type-placeholder {
+  font-size: 22px;
+  color: #ccc;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+/*************************************
+ *   Import location section styles
+ *************************************/
 .location-check-search {
   display: inline-block;
   float: left;
   margin: 15px 30px 25px 0px;
-}
-.location-check-currc {
-  text-align: right;
-  font-style: italic;
 }
 .location-check-search label {
   margin-right: 10px;
   width: 125px;
   display: inline-block;
 }
+.location-check-currc {
+  text-align: right;
+  font-style: italic;
+}
 .location-check-details {
   display: inline-block;
   float: left;
   width: 180px;
 }
-.location-check-results td {
+.location-check-details td {
   padding-top: 8px;
 }
-.button-full-width {
-  width: 100%;
-  outline: none;
-}
-.caption {
-  font-size: 11px;
-  font-style: italic;
-  color: #666;
-}
+/******************************
+ *   Import branding styles
+ ******************************/
 #bmap-map-branding {
   background: #fff !important;
   border: none !important;

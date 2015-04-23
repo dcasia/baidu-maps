@@ -2,6 +2,7 @@ var gulp = require('gulp');                   // Gulp!
 
 var stylus = require('gulp-stylus');          // Stylus
 var nib = require('nib');                     // Nib helper library for stylus
+var jeet = require('jeet');                   // Jeet grid for stylus
 var rupture = require('rupture');             // Rupture helper library for stylus
 var prefix = require('gulp-autoprefixer');    // Autoprefixr
 var minifycss = require('gulp-minify-css');   // Minify CSS
@@ -21,6 +22,7 @@ var plumber = require('gulp-plumber');
     gulp.src(['assets/styl/admin.styl'])
       .pipe(stylus({ use: [
         nib(),
+        jeet(),
         rupture()
       ]}))
       .pipe(plumber())
@@ -33,6 +35,7 @@ var plumber = require('gulp-plumber');
     gulp.src(['assets/styl/frontend.styl'])
       .pipe(stylus({ use: [
         nib(),
+        jeet(),
         rupture()
       ]}))
       .pipe(plumber())
@@ -84,8 +87,8 @@ gulp.task('watch', function(){
 
 
   gulp.watch("assets/styl/**/*.styl", ['stylus']);              // Watch and run stylus on changes
-  // gulp.watch("assets/js/_*.js", ['jshint', 'javascripts']);     // Watch and run javascripts on changes
+  gulp.watch("assets/js/_*.js", ['jshint', 'javascripts']);     // Watch and run javascripts on changes
 
 });
 
-gulp.task('default', ['stylus', 'jshint', 'watch']);
+gulp.task('default', ['stylus', 'jshint', 'javascripts', 'watch']);

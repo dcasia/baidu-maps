@@ -84,10 +84,10 @@ class Baidu_Maps_Admin {
 
 		$baidu_meta_maps_details = array(
 			array(
-				'label' => __( 'Map Height', 'baidu-maps' ) . ' (px)',
-				'desc'  => __( 'Enter the height in px', 'baidu-maps' ),
-				'id'    => $prefix . 'height',
-				'type'  => 'text'
+				'label' => __( 'Show full width', 'baidu-maps' ),
+				'desc'  => __( 'Select to set the map to full width', 'baidu-maps' ),
+				'id'    => $prefix . 'set_full_width',
+				'type'  => 'checkbox'
 			),
 			array(
 				'label' => __( 'Map Width', 'baidu-maps' ) . ' (px)',
@@ -96,10 +96,10 @@ class Baidu_Maps_Admin {
 				'type'  => 'text'
 			),
 			array(
-				'label' => __( 'Show full width', 'baidu-maps' ),
-				'desc'  => __( 'Select to set the map to full width', 'baidu-maps' ),
-				'id'    => $prefix . 'set_full_width',
-				'type'  => 'checkbox'
+				'label' => __( 'Map Height', 'baidu-maps' ) . ' (px)',
+				'desc'  => __( 'Enter the height in px', 'baidu-maps' ),
+				'id'    => $prefix . 'height',
+				'type'  => 'text'
 			),
 			array(
 				'label' => __( 'Zoom', 'baidu-maps' ),
@@ -154,7 +154,9 @@ class Baidu_Maps_Admin {
 				case 'text':
 					$html[] = "<input type='text' name='" . $field['id'] . "' id='" . $field['id'] . "' value='" . $meta . "' size='10'>";
 					$html[] = "<br>";
-					$html[] = "<span class='description'>" . $field['description'] . "</span>";
+					if ( isset( $field['description'] ) ) {
+						$html[] = "<span class='description'>" . $field['description'] . "</span>";
+					}
 					break;
 
 				case 'checkbox':
@@ -187,18 +189,18 @@ class Baidu_Maps_Admin {
 
 		wp_nonce_field( 'baidu_maps_meta_box_marker_details_nonce', 'baidu_maps_meta_box_markers_nonce' );
 
-		$html[] = "<p>";
+		$html[] = "<div class='markers-panel-wrap'>";
 		$html[] = "<a href='#' class='button insert_marker'>" . __( "Add Marker", 'baidu-maps' ) . "</a>";
-		$html[] = "</p>";
+		$html[] = "</div>";
 
 		$markers = get_post_meta( $post->ID, 'markers', true );
 
-		$html[] = "<div class='marker-container'>";
+		$html[] = "<div id='markersContainer' class='markers-container'>";
 
 		if ( is_array( $markers ) ) {
 			foreach ( $markers as $marker_count => $marker ) {
 				if ( empty( $marker ) ) continue;
-				$html[] = "<div class='markers'>";
+				$html[] = "<div class='marker'>";
 
 				$meta_name        = $marker[$prefix . 'name' . '-' . $marker_count];
 				$meta_description = $marker[$prefix . 'description' . '-' . $marker_count];
@@ -210,7 +212,7 @@ class Baidu_Maps_Admin {
 				$meta_isopen      = $marker[$prefix . 'isopen' . '-' . $marker_count];
 				$checked_isopen   = $meta_isopen ? "checked='checked'" : "";
 
-
+				$html[] = "<div class='marker-tracker'>" . $marker_count . "</div>";
 				$html[] = "<div class='marker-controls'>";
 				$html[] = "<a href='#'class='button choose_image'>" . __( 'Upload Marker', 'baidu-maps' ) . "</a>";
 				$html[] = "<input class='icon-input' style='display: none;' type='text' name='" . $prefix . 'icon' . '-' . $marker_count . "' value='" . $meta_icon . "' >";
@@ -266,11 +268,8 @@ class Baidu_Maps_Admin {
 		$baidu_maps_api = new Baidu_Maps_API();
 
 		$id  = 'admin-map-element';
-		$map = $baidu_maps_api->createMapElement( $id, '0', '300', TURE );
+		$map = $baidu_maps_api->createMapElement( $id, '0', '300', true );
 
-//		$default_lat  = '39.915';
-//		$default_lng  = '116.404';
-//		$default_zoom = '13';
 
 		$default_lat = get_post_meta( $post->ID, 'baidu_maps_meta_center_lat', true );
 		if ( empty( $default_lat ) ) $default_lat = '39.915';
